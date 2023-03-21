@@ -1,7 +1,5 @@
 using Script.View;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class VersePresenter : MonoBehaviour
 {
@@ -13,6 +11,6 @@ public class VersePresenter : MonoBehaviour
     /// <param name="t">[0, 1]の値</param>
     public void SetBeatT(float t)
     {
-        _noteView.SetSliderValue(t);
+        _noteView.UpdateView(t);
     }
 }
