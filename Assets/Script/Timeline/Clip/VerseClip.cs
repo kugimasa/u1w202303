@@ -1,24 +1,29 @@
 using System;
+using Script.Presenter;
+using Script.Timeline.Behaviour;
 using UnityEngine;
 using UnityEngine.Playables;
 
-[Serializable]
-public class VerseClip : PlayableAsset
+namespace Script.Timeline.Clip
 {
-    public ExposedReference<VersePresenter> _versePresenter;
-    [SerializeField] private double _bpm;
-    [SerializeField] private double _speed;
-    
-    public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
+    [Serializable]
+    public class VerseClip : PlayableAsset
     {
-        var resolvedVersePresenter = _versePresenter.Resolve(graph.GetResolver());
-        if (resolvedVersePresenter == null)
+        public ExposedReference<VersePresenter> _versePresenter;
+        [SerializeField] private double _bpm;
+        [SerializeField] private double _speed;
+    
+        public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
-            return default;
+            var resolvedVersePresenter = _versePresenter.Resolve(graph.GetResolver());
+            if (resolvedVersePresenter == null)
+            {
+                return default;
+            }
+            var behaviour = new VerseBehaviour();
+            behaviour.SetVersePresenter(resolvedVersePresenter, _bpm, _speed);
+            var playable = ScriptPlayable<VerseBehaviour>.Create(graph, behaviour);
+            return playable;
         }
-        var behaviour = new VerseBehaviour();
-        behaviour.SetVersePresenter(resolvedVersePresenter, _bpm, _speed);
-        var playable = ScriptPlayable<VerseBehaviour>.Create(graph, behaviour);
-        return playable;
     }
 }

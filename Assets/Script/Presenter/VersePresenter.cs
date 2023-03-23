@@ -1,16 +1,19 @@
 using Script.View;
 using UnityEngine;
 
-public class VersePresenter : MonoBehaviour
+namespace Script.Presenter
 {
-    [SerializeField] private NoteView _noteView;
-    
-    /// <summary>
-    ///     ビート位置をセット
-    /// </summary>
-    /// <param name="t">[0, 1]の値</param>
-    public void SetBeatT(float t)
+    public class VersePresenter : MonoBehaviour
     {
-        _noteView.UpdateView(t);
+        [SerializeField] private NoteView _noteView;
+    
+        /// <summary>
+        ///     ビート位置をセット
+        /// </summary>
+        /// <param name="t">[0, 1]の値</param>
+        public void SetBeatT(float t)
+        {
+            _noteView.UpdateView(t);
+        }
     }
 }
