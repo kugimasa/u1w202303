@@ -8,21 +8,9 @@ namespace Script.View
     public class RhymeView : MonoBehaviour
     {
         [SerializeField] private Image _noteImage;
+        [SerializeField] private AudioClip _justTimingSe;
         private Sequence _noteImagesSequence;
 
-        /// <summary>
-        /// 入力があった場合の表示
-        /// </summary>
-        /// <param name="keyCode"></param>
-        public void OnRhymeSpit(KeyCode keyCode, AudioClip rhymeSe)
-        {
-            // SE再生
-            SePlayer.Instance.Play(rhymeSe.name);
-            // ノート演出
-            NoteImageAnimation();
-            Debug.Log($"<color=cyan>{keyCode} Down</color>");
-        }
-        
         /// <summary>
         ///     ノーツUIの中心のスプライト演出
         /// </summary>
@@ -35,6 +23,29 @@ namespace Script.View
                 .Append(scaleIn)
                 .SetLink(gameObject);
             _noteImagesSequence.Play();
+        }
+        
+        /// <summary>
+        /// 入力があった場合の表示
+        /// </summary>
+        /// <param name="keyCode"></param>
+        public void OnRhymeSpit(KeyCode keyCode, AudioClip rhymeSe)
+        {
+            // SE再生
+            SePlayer.Instance.Play(rhymeSe.name);
+            // ノート演出
+            NoteImageAnimation();
+            Debug.Log($"<color=cyan>{keyCode} Down</color>");
+        }
+
+        /// <summary>
+        /// タイミングよく入力できた際の表示
+        /// </summary>
+        public void OnJustTiming()
+        {
+            // SE再生
+            SePlayer.Instance.Play(_justTimingSe.name);
+            Debug.Log($"<color=green>Nice Rhyme!!</color>");
         }
     }
 }

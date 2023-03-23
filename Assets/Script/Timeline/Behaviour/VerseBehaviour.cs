@@ -33,7 +33,7 @@ namespace Script.Timeline.Behaviour
             // 現在の再生位置を取得
             var time = playable.GetTime();
             var div = time * _speed / _secPerBar;
-            var t = (float)(div - (int)div);
+            var t = div - (int)div;
             // ビート位置をセット
             _versePresenter.SetBeatT(t);
             base.ProcessFrame(playable, info, playerData);
