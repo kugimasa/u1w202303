@@ -308,7 +308,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a3b674ae74bba99e8fa34fcdef8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirmationPanel: {fileID: 275076407}
   _keyCodeText: {fileID: 94325908}
 --- !u!1 &100100097
 GameObject:
@@ -876,7 +875,7 @@ RectTransform:
   m_GameObject: {fileID: 238530503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.141122, y: 2.141122, z: 2.141122}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 344503581}
@@ -885,7 +884,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 15}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &238530505
 MonoBehaviour:
@@ -1042,6 +1041,7 @@ MonoBehaviour:
   - {fileID: 158145085}
   - {fileID: 1526768487}
   - {fileID: 1177382199}
+  _confirmationPanel: {fileID: 275076407}
 --- !u!1 &275076407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,7 +1195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _noteSliderR: {fileID: 1062471384}
   _noteSliderL: {fileID: 100100099}
-  _noteImage: {fileID: 238530505}
 --- !u!114 &344503583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1508,7 +1507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a3b674ae74bba99e8fa34fcdef8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirmationPanel: {fileID: 275076407}
   _keyCodeText: {fileID: 487597951}
 --- !u!1 &519420028
 GameObject:
@@ -1742,7 +1740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a3b674ae74bba99e8fa34fcdef8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirmationPanel: {fileID: 275076407}
   _keyCodeText: {fileID: 604282701}
 --- !u!1 &682078989
 GameObject:
@@ -1755,7 +1752,6 @@ GameObject:
   - component: {fileID: 682078990}
   - component: {fileID: 682078993}
   - component: {fileID: 682078992}
-  - component: {fileID: 682078991}
   - component: {fileID: 682078994}
   m_Layer: 5
   m_Name: Rhyme1
@@ -1785,62 +1781,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &682078991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682078989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 682078992}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1835530009}
-        m_TargetAssemblyTypeName: naichilab.EasySoundPlayer.Scripts.SePlayer, naichilab.EasySoundPlayer
-        m_MethodName: Play
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: orewa_Converted
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &682078992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2224,6 +2164,7 @@ GameObject:
   - component: {fileID: 1004547207}
   - component: {fileID: 1004547208}
   - component: {fileID: 1004547209}
+  - component: {fileID: 1004547210}
   m_Layer: 0
   m_Name: BattleDirector
   m_TagString: Untagged
@@ -2298,7 +2239,22 @@ MonoBehaviour:
   - {fileID: 1644128798}
   - {fileID: 1838236472}
   - {fileID: 1557711655}
-  _delay: 2.5
+  _rhymeView: {fileID: 1004547210}
+  _delay: 0.3
+  _sampleSe: {fileID: 8300000, guid: fd08cd464730f4e8b83bcc6518cb2656, type: 3}
+--- !u!114 &1004547210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004547205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42421b12d2f4887949055b8bc7a7268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _noteImage: {fileID: 238530505}
 --- !u!1 &1050627354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3907,7 +3863,6 @@ GameObject:
   - component: {fileID: 1557711651}
   - component: {fileID: 1557711654}
   - component: {fileID: 1557711653}
-  - component: {fileID: 1557711652}
   - component: {fileID: 1557711655}
   m_Layer: 5
   m_Name: Rhyme4
@@ -3937,62 +3892,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1557711652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557711650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1557711653}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1835530009}
-        m_TargetAssemblyTypeName: naichilab.EasySoundPlayer.Scripts.SePlayer, naichilab.EasySoundPlayer
-        m_MethodName: Play
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1557711653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4355,7 +4254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a3b674ae74bba99e8fa34fcdef8b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _confirmationPanel: {fileID: 275076407}
   _keyCodeText: {fileID: 1636212974}
 --- !u!1 &1644128793
 GameObject:
@@ -4368,7 +4266,6 @@ GameObject:
   - component: {fileID: 1644128794}
   - component: {fileID: 1644128797}
   - component: {fileID: 1644128796}
-  - component: {fileID: 1644128795}
   - component: {fileID: 1644128798}
   m_Layer: 5
   m_Name: Rhyme2
@@ -4398,62 +4295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1644128795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1644128793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1644128796}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1835530009}
-        m_TargetAssemblyTypeName: naichilab.EasySoundPlayer.Scripts.SePlayer, naichilab.EasySoundPlayer
-        m_MethodName: Play
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1644128796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5056,17 +4897,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1835530009 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
-  m_PrefabInstance: {fileID: 1598404555}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ba67a6d5e6a1455faa996db69a44325, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1838236467
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,7 +4908,6 @@ GameObject:
   - component: {fileID: 1838236468}
   - component: {fileID: 1838236471}
   - component: {fileID: 1838236470}
-  - component: {fileID: 1838236469}
   - component: {fileID: 1838236472}
   m_Layer: 5
   m_Name: Rhyme3
@@ -5108,62 +4937,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1838236469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838236467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1838236470}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1835530009}
-        m_TargetAssemblyTypeName: naichilab.EasySoundPlayer.Scripts.SePlayer, naichilab.EasySoundPlayer
-        m_MethodName: Play
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1838236470
 MonoBehaviour:
   m_ObjectHideFlags: 0

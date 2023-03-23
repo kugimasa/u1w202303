@@ -9,6 +9,7 @@ namespace Script.Model
         [SerializeField] private KeyCode _keyCode;
         private bool _isSpeaking;
 
+        public int Id => _id;
         public KeyCode KeyCode => _keyCode;
 
         /// <summary>
@@ -16,7 +17,7 @@ namespace Script.Model
         /// </summary>
         /// <param name="delay">入力受付しない遅延</param>>
         /// <returns></returns>
-        public bool TrySpeak(float delay)
+        public bool TryRhymeSpit(float delay)
         {
             if (_isSpeaking)
             {
