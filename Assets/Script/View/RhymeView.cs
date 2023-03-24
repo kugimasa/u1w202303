@@ -9,6 +9,7 @@ namespace Script.View
     {
         [SerializeField] private Image _noteImage;
         [SerializeField] private AudioClip _justTimingSe;
+        [SerializeField] private AudioClip _justRhymeSe;
         private Sequence _noteImagesSequence;
 
         /// <summary>
@@ -24,9 +25,9 @@ namespace Script.View
                 .SetLink(gameObject);
             _noteImagesSequence.Play();
         }
-        
+
         /// <summary>
-        /// 入力があった場合の表示
+        ///     入力があった場合の表示
         /// </summary>
         /// <param name="keyCode"></param>
         public void OnRhymeSpit(KeyCode keyCode, AudioClip rhymeSe)
@@ -39,13 +40,23 @@ namespace Script.View
         }
 
         /// <summary>
-        /// タイミングよく入力できた際の表示
+        ///     タイミングよく入力できた際の表示
         /// </summary>
         public void OnJustTiming()
         {
             // SE再生
             SePlayer.Instance.Play(_justTimingSe.name);
-            Debug.Log($"<color=green>Nice Rhyme!!</color>");
+            Debug.Log($"<color=green>Nice Timing!!</color>");
+        }
+
+        /// <summary>
+        ///     ライムタイプを正しく入力できた際の表示
+        /// </summary>
+        public void OnJustRhyme()
+        {
+            // SE再生
+            SePlayer.Instance.Play(_justRhymeSe.name);
+            Debug.Log($"<color=yellow>Nice RhymeType!!</color>");
         }
     }
 }

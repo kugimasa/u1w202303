@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Script.Model;
 using Script.Presenter;
 using Script.Timeline.Behaviour;
 using UnityEngine;
@@ -10,9 +12,11 @@ namespace Script.Timeline.Clip
     public class VerseClip : PlayableAsset
     {
         public ExposedReference<VersePresenter> _versePresenter;
+        [SerializeField] private List<RhymeType> _rhymeTypes = new List<RhymeType>();
         [SerializeField] private double _bpm;
         [SerializeField] private double _speed;
-    
+        [SerializeField] private double _precision;
+
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var resolvedVersePresenter = _versePresenter.Resolve(graph.GetResolver());
@@ -21,7 +25,7 @@ namespace Script.Timeline.Clip
                 return default;
             }
             var behaviour = new VerseBehaviour();
-            behaviour.SetVersePresenter(resolvedVersePresenter, _bpm, _speed);
+            behaviour.SetVersePresenter(resolvedVersePresenter, _rhymeTypes, _bpm, _speed, _precision);
             var playable = ScriptPlayable<VerseBehaviour>.Create(graph, behaviour);
             return playable;
         }

@@ -395,7 +395,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.0125
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1833,6 +1833,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _keyCode: 49
+  _rhymeType: 0
 --- !u!1 &835689741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _noteImage: {fileID: 238530505}
   _justTimingSe: {fileID: 8300000, guid: 7c7ddf80f7f9c425b9c90efb958bf649, type: 3}
+  _justRhymeSe: {fileID: 8300000, guid: 4fc60fefab0364bde83876a8d24c2e59, type: 3}
 --- !u!114 &1004547211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2271,7 +2273,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e899aa41b9f4d02905efa4dc9eab82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _percision: 0.05000000074505806
 --- !u!1 &1050627354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,7 +2435,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.0125
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3961,6 +3962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 3
   _keyCode: 52
+  _rhymeType: 3
 --- !u!1 &1577035919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[0]
@@ -4116,6 +4118,14 @@ PrefabInstance:
       propertyPath: SeList.Array.data[3]
       value: 
       objectReference: {fileID: 8300000, guid: 7c7ddf80f7f9c425b9c90efb958bf649, type: 3}
+    - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
+      propertyPath: SeList.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e7d6d3edd82e4e069902c11e71705ef, type: 3}
+    - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
+      propertyPath: SeList.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fc60fefab0364bde83876a8d24c2e59, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
 --- !u!4 &1598404556 stripped
@@ -4364,6 +4374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _keyCode: 50
+  _rhymeType: 1
 --- !u!1 &1687910975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5006,6 +5017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 2
   _keyCode: 51
+  _rhymeType: 2
 --- !u!1 &1850745700
 GameObject:
   m_ObjectHideFlags: 0

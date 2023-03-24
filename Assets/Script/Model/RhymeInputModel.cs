@@ -7,10 +7,10 @@ namespace Script.Model
     {
         [SerializeField, Range(0, 3)] private int _id;
         [SerializeField] private KeyCode _keyCode;
+        [SerializeField] private RhymeType _rhymeType;
         private bool _isSpeaking;
-
-        public int Id => _id;
         public KeyCode KeyCode => _keyCode;
+        public RhymeType RhymeType => _rhymeType;
 
         /// <summary>
         ///     入力受付状態を見て発言する

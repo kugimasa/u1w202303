@@ -27,6 +27,11 @@ namespace Script.Presenter
                         {
                             _rhymeView.OnJustTiming();
                         }
+                        // ライムタイプ判定
+                        if (_evaluateModel.EvaluateRhymeType(rhymeInput.RhymeType))
+                        {
+                            _rhymeView.OnJustRhyme();
+                        }
                         // 表示 & 音声処理
                         // TODO: データから現状のSEを取得
                         _rhymeView.OnRhymeSpit(rhymeInput.KeyCode, _sampleSe);

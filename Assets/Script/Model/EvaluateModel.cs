@@ -4,16 +4,18 @@ namespace Script.Model
 {
     public class EvaluateModel : MonoBehaviour
     {
-        [SerializeField, Range(0, 1)] private double _percision;
-        
+        private RhymeType _rhymeType;
         private double _t;
+        private double _precision;
 
         /// <summary>
         ///     現在の入力位置をセット
         /// </summary>
-        public void SetT(double t)
+        public void SetParam(RhymeType rhymeType, double t, double precision)
         {
+            _rhymeType = rhymeType;
             _t = t;
+            _precision = precision;
         }
 
         /// <summary>
@@ -22,7 +24,21 @@ namespace Script.Model
         /// <returns>判定</returns>
         public bool EvaluateT()
         {
-            if (_t <= _percision || 1.0 - _percision <= _t)
+            if (_t <= _precision || 1.0 - _precision <= _t)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        ///     ライムタイプの判定
+        /// </summary>
+        /// <param name="inputRhymeType">入力</param>
+        /// <returns></returns>
+        public bool EvaluateRhymeType(RhymeType inputRhymeType)
+        {
+            if (inputRhymeType == _rhymeType)
             {
                 return true;
             }

@@ -8,14 +8,16 @@ namespace Script.Presenter
     {
         [SerializeField] private EvaluateModel _evaluateModel;
         [SerializeField] private NoteView _noteView;
-    
+
         /// <summary>
         ///     ビート位置をセット
         /// </summary>
+        /// <param name="type">ライムタイプ</param>
         /// <param name="t">[0, 1]の値</param>
-        public void SetBeatT(double t)
+        /// <param name="precision">精度</param>
+        public void SetBeatParam(RhymeType type, double t, double precision)
         {
-            _evaluateModel.SetT(t);
+            _evaluateModel.SetParam(type, t, precision);
             _noteView.UpdateView((float)t);
         }
     }
