@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Model
+namespace Script.Data
 {
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObject/RhymeData")]
     public class RhymeData : ScriptableObject

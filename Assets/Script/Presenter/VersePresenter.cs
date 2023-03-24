@@ -1,3 +1,4 @@
+using Script.Data;
 using Script.Model;
 using Script.View;
 using UnityEngine;

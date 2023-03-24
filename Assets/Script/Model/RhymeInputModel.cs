@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Script.Data;
 using UnityEngine;
 
 namespace Script.Model

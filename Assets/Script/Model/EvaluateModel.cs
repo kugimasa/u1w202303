@@ -1,3 +1,4 @@
+using Script.Data;
 using UnityEngine;
 
 namespace Script.Model

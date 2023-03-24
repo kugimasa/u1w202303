@@ -1,4 +1,4 @@
-namespace Script.Model
+namespace Script.Data
 {
     public enum RhymeType
     {
