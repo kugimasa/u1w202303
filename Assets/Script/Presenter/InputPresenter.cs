@@ -18,6 +18,7 @@ namespace Script.Presenter
 
         void Update()
         {
+            if (_currentSet == null) return;
             for (var index = 0; index < StaticConst.INPUT_NUM; index++)
             {
                 var rhymeInput = _rhymeInputs[index];
@@ -37,13 +38,10 @@ namespace Script.Presenter
                             _rhymeView.OnJustRhyme();
                         }
                         // 表示 & 音声処理
-                        // TODO: データから現状のSEを取得
                         var spitSe = _currentSet.RhymeDataArray[index].Clip;
                         _rhymeView.OnRhymeSpit(rhymeInput.KeyCode, spitSe);
-                    }
-                    else
-                    {
-                        Debug.Log($"<color=red>{rhymeInput.KeyCode} is used.</color>");
+                        // 同時押しはNG
+                        return;
                     }
                 }
             }

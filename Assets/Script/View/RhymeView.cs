@@ -36,7 +36,6 @@ namespace Script.View
             SePlayer.Instance.Play(rhymeSe.name);
             // ノート演出
             NoteImageAnimation();
-            Debug.Log($"<color=cyan>{keyCode} Down</color>");
         }
 
         /// <summary>
