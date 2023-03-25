@@ -1,3 +1,4 @@
+using Script.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,14 +8,25 @@ namespace Script.View
     {
         [SerializeField] private Slider _noteSliderR;
         [SerializeField] private Slider _noteSliderL;
+        [SerializeField] private Image _noteFillR;
+        [SerializeField] private Image _noteFillL;
+        [SerializeField] private Color[] _rhymeTypeColors = new Color[StaticConst.INPUT_NUM];
 
         /// <summary>
         ///     tの値に応じて演出させる
         /// </summary>
+        /// <param name="rhymeType"></param>
         /// <param name="t"></param>
-        public void UpdateView(float t)
+        public void UpdateView(RhymeType rhymeType, float t)
         {
+            SetRhymeColor(rhymeType);
             SetSliderValue(t);
+        }
+        
+        private void SetRhymeColor(RhymeType rhymeType)
+        {
+            _noteFillR.color = _rhymeTypeColors[(int)rhymeType];
+            _noteFillL.color = _rhymeTypeColors[(int)rhymeType];
         }
 
         /// <summary>

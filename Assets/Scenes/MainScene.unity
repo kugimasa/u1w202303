@@ -395,7 +395,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0125
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1195,6 +1195,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _noteSliderR: {fileID: 1062471384}
   _noteSliderL: {fileID: 100100099}
+  _noteFillR: {fileID: 2043883100}
+  _noteFillL: {fileID: 1050627356}
+  _rhymeTypeColors:
+  - {r: 0.9254902, g: 0.09803922, b: 0.22745098, a: 1}
+  - {r: 0.5058824, g: 0.41568628, b: 0.68235296, a: 1}
+  - {r: 0.18039216, g: 0.70980394, b: 0.4117647, a: 1}
+  - {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
 --- !u!114 &344503583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,7 +1802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9254902, g: 0.09803922, b: 0.22745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2305,7 +2312,7 @@ GameObject:
   - component: {fileID: 1050627357}
   - component: {fileID: 1050627356}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: FillL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2455,7 +2462,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0125
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3944,7 +3951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4373,7 +4380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5058824, g: 0.41568628, b: 0.68235296, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5029,7 +5036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18039216, g: 0.70980394, b: 0.4117647, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5334,7 +5341,7 @@ GameObject:
   - component: {fileID: 2043883101}
   - component: {fileID: 2043883100}
   m_Layer: 5
-  m_Name: Fill
+  m_Name: FillR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

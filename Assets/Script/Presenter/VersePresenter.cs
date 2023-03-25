@@ -21,7 +21,7 @@ namespace Script.Presenter
         public void SetBeatParam(bool isUpdateRhymeData, RhymeType type, double t, double precision)
         {
             _evaluateModel.SetParam(type, t, precision);
-            _noteView.UpdateView((float)t);
+            _noteView.UpdateView(type, (float)t);
             if (isUpdateRhymeData)
             {
                 _inputPresenter.UpdateRhymeData();
