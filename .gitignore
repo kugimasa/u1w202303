@@ -78,3 +78,6 @@ crashlytics-build.properties
 # DS_Store
 .DS_Store
 
+# リソースは管理から外す
+/[Aa]ssets/Resources/
+/[Aa]ssets/Resources.meta
