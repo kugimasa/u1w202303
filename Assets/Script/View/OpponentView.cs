@@ -1,5 +1,4 @@
 using DG.Tweening;
-using naichilab.EasySoundPlayer.Scripts;
 using Script.Data;
 using TMPro;
 using UnityEngine;
@@ -13,13 +12,15 @@ namespace Script.View
         [SerializeField] private Image _rhymeImage;
         [SerializeField] private Image _opponentImage;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
-        [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private CanvasGroup _opponentRhyme;
         [SerializeField] private AudioSource _rhymeSpitSource;
+        private Sequence _rhymeSequence;
 
         private void Awake()
         {
             // 初期状態では透明
-            _canvasGroup.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _opponentImage.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _opponentRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         /// <summary>
@@ -57,18 +58,24 @@ namespace Script.View
             _rhymeSpitSource.PlayOneShot(se);
             // ライムテキスト表示
             _rhymeLabel.text = rhymeData.Text;
-            DOTween.Sequence()
+            var sequence = DOTween.Sequence()
                 .OnStart(() =>
                 {
-                    _canvasGroup.DOFade(1.0f, 0.0f).SetLink(gameObject);
+                    _opponentRhyme.DOFade(1.0f, 0.0f).SetLink(gameObject);
                     _rhymeImage.rectTransform.localScale = Vector3.one;
                 })
                 .Append(_rhymeImage.rectTransform.DOScale(1.2f, 2.0f).SetEase(Ease.OutElastic))
-                .OnComplete(() =>
-                {
-                    _canvasGroup.DOFade(0.0f, 0.0f).SetLink(gameObject);
-                })
                 .SetLink(gameObject);
+            
+            _rhymeSequence?.Kill();
+            _rhymeSequence = DOTween.Sequence()
+                .OnStart(() => _rhymeImage.rectTransform.localScale = Vector3.one)
+                .Append(_opponentRhyme.DOFade(1.0f, 0.0f))
+                .Append(_rhymeImage.rectTransform.DOScale(1.2f, 1.0f).SetEase(Ease.OutElastic))
+                .Insert(0.75f, _opponentRhyme.DOFade(0.0f, 0.2f))
+                .SetLink(gameObject);
+            _rhymeSequence.Play();
+            sequence.Play();
         }
     }
 }

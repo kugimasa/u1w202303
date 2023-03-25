@@ -1,3 +1,4 @@
+using System;
 using Script.Data;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -5,6 +6,7 @@ using UnityEngine.Timeline;
 
 namespace Script.Timeline.Marker
 {
+    [Serializable]
     public class RhymeSpitNotification : UnityEngine.Timeline.Marker, INotification, INotificationOptionProvider
     {
         [SerializeField] private RhymeData _rhymeData;

@@ -1,5 +1,7 @@
 using DG.Tweening;
 using naichilab.EasySoundPlayer.Scripts;
+using Script.Data;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +10,18 @@ namespace Script.View
     public class RhymeView : MonoBehaviour
     {
         [SerializeField] private Image _noteImage;
-        [SerializeField] private AudioClip _justTimingSe;
-        [SerializeField] private AudioClip _justRhymeSe;
+        [SerializeField] private Image _myRhymeImage;
+        [SerializeField] private CanvasGroup _myRhyme;
+        [SerializeField] private CanvasGroup _rhymeViewCanvasGroup;
+        [SerializeField] private TextMeshProUGUI _rhymeLabel;
         private Sequence _noteImagesSequence;
+        private Sequence _rhymeSequence;
+        
+        private void Awake()
+        {
+            // 初期状態では透明
+            _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
+        }
 
         /// <summary>
         ///     ノーツUIの中心のスプライト演出
@@ -29,11 +40,20 @@ namespace Script.View
         /// <summary>
         ///     入力があった場合の表示
         /// </summary>
-        /// <param name="keyCode"></param>
-        public void OnRhymeSpit(KeyCode keyCode, AudioClip rhymeSe)
+        public void OnRhymeSpit(RhymeData rhymeData)
         {
             // SE再生
-            SePlayer.Instance.Play(rhymeSe.name);
+            SePlayer.Instance.Play(rhymeData.Clip.name);
+            // ライムテキスト表示
+            _rhymeLabel.text = rhymeData.Text;
+            _rhymeSequence?.Kill();
+            _rhymeSequence = DOTween.Sequence()
+                .OnStart(() =>_myRhymeImage.rectTransform.localScale = Vector3.one)
+                .Append(_myRhyme.DOFade(1.0f, 0.0f))
+                .Append(_myRhymeImage.rectTransform.DOScale(1.2f, 1.0f).SetEase(Ease.OutElastic))
+                .Insert(0.75f, _myRhyme.DOFade(0.0f, 0.2f))
+                .SetLink(gameObject);
+            _rhymeSequence.Play();
             // ノート演出
             NoteImageAnimation();
         }
@@ -43,8 +63,8 @@ namespace Script.View
         /// </summary>
         public void OnJustTiming()
         {
-            // SE再生
-            // SePlayer.Instance.Play(_justTimingSe.name);
+            // 演出
+            // スコア
             Debug.Log($"<color=green>Nice Timing!!</color>");
         }
 
@@ -53,9 +73,26 @@ namespace Script.View
         /// </summary>
         public void OnJustRhyme()
         {
-            // SE再生
-            // SePlayer.Instance.Play(_justRhymeSe.name);
+            // 演出
+            // スコア
             Debug.Log($"<color=yellow>Nice RhymeType!!</color>");
+        }
+
+        public void OnMyTurnStart()
+        {
+            // TODO: YOUR TURN 
+            DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymeViewCanvasGroup.alpha = value)
+                .SetEase(Ease.InOutCubic)
+                .SetLink(gameObject);
+        }
+        
+        public void OnMyTurnEnd()
+        {
+            // TODO: 〇〇 TURN
+            // フェードアウト
+            DOVirtual.Float(1.0f, 0.0f, 0.6f, value => _rhymeViewCanvasGroup.alpha = value)
+                .SetEase(Ease.InOutCubic)
+                .SetLink(gameObject);
         }
     }
 }

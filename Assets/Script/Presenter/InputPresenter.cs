@@ -15,6 +15,7 @@ namespace Script.Presenter
         [SerializeField, Range(0, 3.0f)] private float _delay;
         [SerializeField] private List<RhymeDataSet> _rhymeDataSets;
         private RhymeDataSet _currentSet;
+        // TODO: 入力ストップフラグ
 
         void Update()
         {
@@ -38,8 +39,8 @@ namespace Script.Presenter
                             _rhymeView.OnJustRhyme();
                         }
                         // 表示 & 音声処理
-                        var spitSe = _currentSet.RhymeDataArray[index].Clip;
-                        _rhymeView.OnRhymeSpit(rhymeInput.KeyCode, spitSe);
+                        _rhymeInputViews[index].OnInput();
+                        _rhymeView.OnRhymeSpit(_currentSet.RhymeDataArray[index]);
                         // 同時押しはNG
                         return;
                     }

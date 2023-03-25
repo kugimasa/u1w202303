@@ -1,3 +1,4 @@
+using System;
 using Script.Data;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,13 @@ namespace Script.View
         [SerializeField] private Image _noteFillR;
         [SerializeField] private Image _noteFillL;
         [SerializeField] private Color[] _rhymeTypeColors = new Color[StaticConst.INPUT_NUM];
+
+        private void Awake()
+        {
+            // 初期化
+            _noteSliderR.value = 1.0f;
+            _noteSliderL.value = 1.0f;
+        }
 
         /// <summary>
         ///     tの値に応じて演出させる
