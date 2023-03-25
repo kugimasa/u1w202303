@@ -5,5 +5,6 @@ namespace Script.Data
         internal static readonly int MIN_AS_SEC = 60;
         internal static readonly int BEAT_NUM = 4;
         internal static readonly int INPUT_NUM = 4;
+        internal static readonly int OPPONENT_NUM = 3;
     }
 }
