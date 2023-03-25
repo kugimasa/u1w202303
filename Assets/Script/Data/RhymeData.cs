@@ -7,6 +7,8 @@ namespace Script.Data
     {
         [SerializeField] private AudioClip _audioClip;
         [SerializeField] private string _text;
-        [SerializeField] private RhymeType _type;
+
+        public AudioClip Clip => _audioClip;
+        public string Text => _text;
     }
 }

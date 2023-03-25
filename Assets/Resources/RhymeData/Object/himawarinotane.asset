@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c6fa00be5324eb9b31c969bb18de855, type: 3}
+  m_Name: himawarinotane
+  m_EditorClassIdentifier: 
+  _audioClip: {fileID: 8300000, guid: ce53739e72b2844bf92a3d1a19fb27db, type: 3}
+  _text: "\u3072\u307E\u308F\u308A\u306E\u30BF\u30CD"
