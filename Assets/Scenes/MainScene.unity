@@ -448,7 +448,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0125
+  m_Value: 0.3888889
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2416,7 +2416,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1004547205}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 0
@@ -2430,9 +2430,18 @@ PlayableDirector:
     value: {fileID: 320487434}
   - key: {fileID: -1157841292399515445, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
     value: {fileID: 1157563032}
+  - key: {fileID: 8634878664264794050, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: 3856503761836608728, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -5857383225983091076, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: -8686773191395429668, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
+    value: {fileID: 1157563032}
   m_ExposedReferences:
     m_References:
     - 4c591ee9ce6ff48bf9ee81d45ae72f4e: {fileID: 1004547208}
+    - 83945398bc50b4a40917c0f63910919e: {fileID: 1004547208}
 --- !u!114 &1004547208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2666,7 +2675,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0125
+  m_Value: 0.3888889
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
