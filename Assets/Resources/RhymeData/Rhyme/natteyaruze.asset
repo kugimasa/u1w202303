@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6992b44d74154bfdacdab54247bbe114, type: 3}
-  m_Name: ObjectSet
+  m_Script: {fileID: 11500000, guid: 9c6fa00be5324eb9b31c969bb18de855, type: 3}
+  m_Name: natteyaruze
   m_EditorClassIdentifier: 
-  _set:
-  - {fileID: 11400000, guid: 6b588fe3848e64faead978b9d144fcbe, type: 2}
-  - {fileID: 11400000, guid: e68e95e39b13d44fb9a8ad0b1e203ba1, type: 2}
-  _type: 1
+  _audioClip: {fileID: 8300000, guid: 3b19a979bc0364bf0bf6f96c2981383a, type: 3}
+  _text: "\u306A\u3063\u3066\u3084\u308B\u305C"

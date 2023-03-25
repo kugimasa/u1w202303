@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 221473298}
   - component: {fileID: 221473297}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: RhymeLabel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Set1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1753,6 +1753,7 @@ GameObject:
   - component: {fileID: 682078993}
   - component: {fileID: 682078992}
   - component: {fileID: 682078994}
+  - component: {fileID: 682078995}
   m_Layer: 5
   m_Name: Rhyme1
   m_TagString: Untagged
@@ -1833,6 +1834,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyCode: 49
   _rhymeType: 0
+--- !u!114 &682078995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682078989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101ee3c836341c7914e78cdcf51156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rhymeLabel: {fileID: 1338566942}
 --- !u!1 &835689741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _evaluateModel: {fileID: 1004547211}
   _noteView: {fileID: 344503582}
+  _inputPresenter: {fileID: 1004547209}
 --- !u!114 &1004547209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2243,8 +2258,14 @@ MonoBehaviour:
   - {fileID: 1557711655}
   _evaluateModel: {fileID: 1004547211}
   _rhymeView: {fileID: 1004547210}
+  _rhymeInputViews:
+  - {fileID: 682078995}
+  - {fileID: 1644128799}
+  - {fileID: 1838236473}
+  - {fileID: 1557711656}
   _delay: 0.3
-  _sampleSe: {fileID: 8300000, guid: fd08cd464730f4e8b83bcc6518cb2656, type: 3}
+  _rhymeDataSets:
+  - {fileID: 11400000, guid: d85a81eeb6689464c9a50956993215e8, type: 2}
 --- !u!114 &1004547210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3200,7 +3221,7 @@ GameObject:
   - component: {fileID: 1338566943}
   - component: {fileID: 1338566942}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: RhymeLabel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3246,7 +3267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Set1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3881,6 +3902,7 @@ GameObject:
   - component: {fileID: 1557711654}
   - component: {fileID: 1557711653}
   - component: {fileID: 1557711655}
+  - component: {fileID: 1557711656}
   m_Layer: 5
   m_Name: Rhyme4
   m_TagString: Untagged
@@ -3961,6 +3983,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyCode: 52
   _rhymeType: 3
+--- !u!114 &1557711656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557711650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101ee3c836341c7914e78cdcf51156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rhymeLabel: {fileID: 221473297}
 --- !u!1 &1577035919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,7 +4133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[0]
@@ -4124,6 +4159,10 @@ PrefabInstance:
       propertyPath: SeList.Array.data[5]
       value: 
       objectReference: {fileID: 8300000, guid: 4fc60fefab0364bde83876a8d24c2e59, type: 3}
+    - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
+      propertyPath: SeList.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3b19a979bc0364bf0bf6f96c2981383a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
 --- !u!4 &1598404556 stripped
@@ -4292,6 +4331,7 @@ GameObject:
   - component: {fileID: 1644128797}
   - component: {fileID: 1644128796}
   - component: {fileID: 1644128798}
+  - component: {fileID: 1644128799}
   m_Layer: 5
   m_Name: Rhyme2
   m_TagString: Untagged
@@ -4372,6 +4412,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyCode: 50
   _rhymeType: 1
+--- !u!114 &1644128799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644128793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101ee3c836341c7914e78cdcf51156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rhymeLabel: {fileID: 2078556062}
 --- !u!1 &1687910975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4551,7 +4604,7 @@ GameObject:
   - component: {fileID: 1772676671}
   - component: {fileID: 1772676670}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: RhymeLabel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4597,7 +4650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Set1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4934,6 +4987,7 @@ GameObject:
   - component: {fileID: 1838236471}
   - component: {fileID: 1838236470}
   - component: {fileID: 1838236472}
+  - component: {fileID: 1838236473}
   m_Layer: 5
   m_Name: Rhyme3
   m_TagString: Untagged
@@ -5014,6 +5068,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyCode: 51
   _rhymeType: 2
+--- !u!114 &1838236473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838236467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3101ee3c836341c7914e78cdcf51156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rhymeLabel: {fileID: 1772676670}
 --- !u!1 &1850745700
 GameObject:
   m_ObjectHideFlags: 0
@@ -5343,7 +5410,7 @@ GameObject:
   - component: {fileID: 2078556063}
   - component: {fileID: 2078556062}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: RhymeLabel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5389,7 +5456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Set1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

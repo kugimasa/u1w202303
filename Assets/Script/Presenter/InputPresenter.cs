@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Script.Data;
 using Script.Model;
 using Script.View;
@@ -10,13 +11,16 @@ namespace Script.Presenter
         [SerializeField] private RhymeInputModel[] _rhymeInputs = new RhymeInputModel[StaticConst.INPUT_NUM];
         [SerializeField] private EvaluateModel _evaluateModel;
         [SerializeField] private RhymeView _rhymeView;
+        [SerializeField] private RhymeInputView[] _rhymeInputViews = new RhymeInputView[StaticConst.INPUT_NUM];
         [SerializeField, Range(0, 3.0f)] private float _delay;
-        [SerializeField] private AudioClip _sampleSe;
+        [SerializeField] private List<RhymeDataSet> _rhymeDataSets;
+        private RhymeDataSet _currentSet;
 
         void Update()
         {
-            foreach (var rhymeInput in _rhymeInputs)
+            for (var index = 0; index < StaticConst.INPUT_NUM; index++)
             {
+                var rhymeInput = _rhymeInputs[index];
                 if (Input.GetKeyDown(rhymeInput.KeyCode))
                 {
                     // ライムをスピット
@@ -34,13 +38,26 @@ namespace Script.Presenter
                         }
                         // 表示 & 音声処理
                         // TODO: データから現状のSEを取得
-                        _rhymeView.OnRhymeSpit(rhymeInput.KeyCode, _sampleSe);
+                        var spitSe = _currentSet.RhymeDataArray[index].Clip;
+                        _rhymeView.OnRhymeSpit(rhymeInput.KeyCode, spitSe);
                     }
                     else
                     {
                         Debug.Log($"<color=red>{rhymeInput.KeyCode} is used.</color>");
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// ライムセットを更新する
+        /// </summary>
+        public void UpdateRhymeData()
+        {
+            _currentSet = _rhymeDataSets[0];
+            for (int i = 0; i < StaticConst.INPUT_NUM; i++)
+            {
+                _rhymeInputViews[i].SetRhymeText(_currentSet.RhymeDataArray[i].Text);
             }
         }
     }

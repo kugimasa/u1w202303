@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Script.Data;
-using Script.Model;
 using Script.Presenter;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -14,16 +13,17 @@ namespace Script.Timeline.Behaviour
         private double _speed;
         private double _precision;
         private double _secPerBar;
+        private int _currentIndex;
 
-        private RhymeType GetCurrentRhymeType(double div)
+        private int GetCurrentIndex(double div)
         {
             int index = (int)(div - _precision);
             index = Mathf.Max(0, index);
             if (index >= _rhymeTypes.Count)
             {
-                return RhymeType.Object;
+                return 0;
             }
-            return _rhymeTypes[index];
+            return index;
         }
 
         /// <summary>
@@ -51,9 +51,13 @@ namespace Script.Timeline.Behaviour
             var time = playable.GetTime();
             var div = time * _speed / _secPerBar;
             var t = div - (int)div;
-            var rhymeType = GetCurrentRhymeType(div);
+            // 現在のインデックスの更新
+            _currentIndex = GetCurrentIndex(div);
+            // TODO: 表示の更新は毎フレーム出なくて良い
+            var isUpdateRhymeData = true;
+            var rhymeType = _rhymeTypes[_currentIndex];
             // ビート位置をセット
-            _versePresenter.SetBeatParam(rhymeType, t, _precision);
+            _versePresenter.SetBeatParam(isUpdateRhymeData, rhymeType, t, _precision);
             base.ProcessFrame(playable, info, playerData);
         }
     }

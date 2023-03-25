@@ -45,7 +45,7 @@ namespace Script.View
         public void OnJustTiming()
         {
             // SE再生
-            SePlayer.Instance.Play(_justTimingSe.name);
+            // SePlayer.Instance.Play(_justTimingSe.name);
             Debug.Log($"<color=green>Nice Timing!!</color>");
         }
 
@@ -55,7 +55,7 @@ namespace Script.View
         public void OnJustRhyme()
         {
             // SE再生
-            SePlayer.Instance.Play(_justRhymeSe.name);
+            // SePlayer.Instance.Play(_justRhymeSe.name);
             Debug.Log($"<color=yellow>Nice RhymeType!!</color>");
         }
     }

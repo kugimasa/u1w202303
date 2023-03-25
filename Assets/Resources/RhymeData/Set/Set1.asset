@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6992b44d74154bfdacdab54247bbe114, type: 3}
-  m_Name: OtherSet
+  m_Name: Set1
   m_EditorClassIdentifier: 
-  _set:
-  - {fileID: 11400000, guid: 13c376594e101464fb4444c8bfab8aa6, type: 2}
-  - {fileID: 11400000, guid: 79dea2f62e8f74385a9747055c1c34ab, type: 2}
-  _type: 3
+  rhymeDataArray:
+  - {fileID: 11400000, guid: ea1b7332c65c9491cb761995c8d45d95, type: 2}
+  - {fileID: 11400000, guid: 6b588fe3848e64faead978b9d144fcbe, type: 2}
+  - {fileID: 11400000, guid: f1cad98b801c24ced908b867ad90f8ba, type: 2}
+  - {fileID: 11400000, guid: 6347d898836c74c6d90e486adb6460a6, type: 2}

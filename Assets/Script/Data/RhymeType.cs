@@ -2,9 +2,9 @@ namespace Script.Data
 {
     public enum RhymeType
     {
-        Subject,
-        Object,
-        Verb,
-        Other,
+        RED,
+        PURPLE,
+        GREEN,
+        BLUE
     }
 }
