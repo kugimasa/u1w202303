@@ -1,3 +1,4 @@
+using Script.Data;
 using Script.Model;
 using Script.View;
 using UnityEngine;
@@ -6,12 +7,11 @@ namespace Script.Presenter
 {
     public class InputPresenter : MonoBehaviour
     {
-        [SerializeField] private RhymeInputModel[] _rhymeInputs = new RhymeInputModel[INPUT_NUM];
+        [SerializeField] private RhymeInputModel[] _rhymeInputs = new RhymeInputModel[StaticConst.INPUT_NUM];
         [SerializeField] private EvaluateModel _evaluateModel;
         [SerializeField] private RhymeView _rhymeView;
         [SerializeField, Range(0, 3.0f)] private float _delay;
         [SerializeField] private AudioClip _sampleSe;
-        private const int INPUT_NUM = 4;
 
         void Update()
         {

@@ -6,7 +6,6 @@ namespace Script.Model
 {
     public class RhymeInputModel : MonoBehaviour
     {
-        [SerializeField, Range(0, 3)] private int _id;
         [SerializeField] private KeyCode _keyCode;
         [SerializeField] private RhymeType _rhymeType;
         private bool _isSpeaking;

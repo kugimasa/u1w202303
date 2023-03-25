@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Script.Data;
 using Script.Model;
 using Script.View;
 using UniRx;
@@ -10,16 +11,15 @@ namespace Script.Presenter
 {
     public class KeyBindPresenter : MonoBehaviour
     {
-        [SerializeField] private RhymeInputModel[] _rhymeInputModels = new RhymeInputModel[INPUT_NUM];
-        [SerializeField] private KeyBindView[] _keyBindViews = new KeyBindView[INPUT_NUM];
-        [SerializeField] private Button[] _keyBindButtons = new Button[INPUT_NUM];
+        [SerializeField] private RhymeInputModel[] _rhymeInputModels = new RhymeInputModel[StaticConst.INPUT_NUM];
+        [SerializeField] private KeyBindView[] _keyBindViews = new KeyBindView[StaticConst.INPUT_NUM];
+        [SerializeField] private Button[] _keyBindButtons = new Button[StaticConst.INPUT_NUM];
         [SerializeField] private GameObject _confirmationPanel;
-        private const int INPUT_NUM = 4;
         private int _waitingId = -1;
 
         void Start()
         {
-            for (int i = 0; i < INPUT_NUM; i++)
+            for (int i = 0; i < StaticConst.INPUT_NUM; i++)
             {
                 var id = i;
                 _keyBindButtons[id].OnClickAsObservable().Subscribe(_ => OnBindButtonClick(id)).AddTo(this);
@@ -86,7 +86,7 @@ namespace Script.Presenter
         private List<KeyCode> GetAssignedKeyCodes()
         {
             var keyCodes = new List<KeyCode>();
-            for (int i = 0; i < INPUT_NUM; i++)
+            for (int i = 0; i < StaticConst.INPUT_NUM; i++)
             {
                 keyCodes.Add(_rhymeInputModels[i].KeyCode);
             }

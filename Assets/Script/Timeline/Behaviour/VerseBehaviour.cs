@@ -14,8 +14,6 @@ namespace Script.Timeline.Behaviour
         private double _speed;
         private double _precision;
         private double _secPerBar;
-        private const int MIN_AS_SEC = 60;
-        private const int BEAT_NUM = 4;
 
         private RhymeType GetCurrentRhymeType(double div)
         {
@@ -36,7 +34,7 @@ namespace Script.Timeline.Behaviour
             _versePresenter = versePresenter;
             _rhymeTypes = rhymeTypes;
             // 1小節あたりにかける時間
-            _secPerBar = MIN_AS_SEC * BEAT_NUM / bpm;
+            _secPerBar = StaticConst.MIN_AS_SEC * StaticConst.BEAT_NUM / bpm;
             _speed = speed;
             _precision = precision;
         }
