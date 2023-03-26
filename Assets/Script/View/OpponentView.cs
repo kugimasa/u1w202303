@@ -8,13 +8,16 @@ namespace Script.View
 {
     public class OpponentView : MonoBehaviour
     {
-        [SerializeField] private Sprite[] _opponents = new Sprite[StaticConst.OPPONENT_NUM];
+        [SerializeField] private Sprite[] _opponentSprites = new Sprite[StaticConst.OPPONENT_NUM];
+        [SerializeField] private Sprite[] _opponentSprites2 = new Sprite[StaticConst.OPPONENT_NUM];
         [SerializeField] private Image _rhymeImage;
         [SerializeField] private Image _opponentImage;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
         [SerializeField] private CanvasGroup _opponentRhyme;
         [SerializeField] private AudioSource _rhymeSpitSource;
+        private int _opponentId;
         private Sequence _rhymeSequence;
+        private Sequence _opponentImageSequence;
 
         private void Awake()
         {
@@ -29,7 +32,8 @@ namespace Script.View
         /// <param name="id"></param>
         public void ChangeOpponent(int id)
         {
-            _opponentImage.sprite = _opponents[id];
+            _opponentId = id;
+            _opponentImage.sprite = _opponentSprites[id];
         }
 
         /// <summary>
@@ -50,6 +54,15 @@ namespace Script.View
 
         public void RhymeSpit(string rhymeStr)
         {
+            // 画像切り替え
+            _opponentImageSequence?.Kill();
+            _opponentImageSequence = DOTween.Sequence()
+                .OnStart(() => _opponentImage.sprite = _opponentSprites[_opponentId])
+                .Append(DOVirtual.DelayedCall(0.1f, () => _opponentImage.sprite = _opponentSprites2[_opponentId]))
+                .SetLoops(2, LoopType.Restart)
+                .OnComplete(() => _opponentImage.sprite = _opponentSprites[_opponentId])
+                .SetLink(gameObject);
+            _opponentImageSequence.Play();
             // ライムテキスト表示
             _rhymeLabel.text = rhymeStr;
             _rhymeSequence?.Kill();

@@ -11,16 +11,21 @@ namespace Script.View
     {
         [SerializeField] private Image _noteImage;
         [SerializeField] private Image _myRhymeImage;
+        [SerializeField] private Image _playerImage;
+        [SerializeField] private Sprite _playerSprite;
+        [SerializeField] private Sprite _playerSprite2;
         [SerializeField] private CanvasGroup _myRhyme;
         [SerializeField] private CanvasGroup _rhymeViewCanvasGroup;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
         private Sequence _noteImagesSequence;
+        private Sequence _playerImageSequence;
         private Sequence _rhymeSequence;
         
         private void Awake()
         {
             // 初期状態では透明
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _playerImage.sprite = _playerSprite;
         }
 
         /// <summary>
@@ -42,6 +47,15 @@ namespace Script.View
         /// </summary>
         public void OnRhymeSpit(RhymeData rhymeData)
         {
+            // 画像切り替え
+            _playerImageSequence?.Kill();
+            _playerImageSequence = DOTween.Sequence()
+                .OnStart(() => _playerImage.sprite = _playerSprite)
+                .Append(DOVirtual.DelayedCall(0.1f, () => _playerImage.sprite = _playerSprite2))
+                .SetLoops(2, LoopType.Restart)
+                .OnComplete(() => _playerImage.sprite = _playerSprite)
+                .SetLink(gameObject);
+            _playerImageSequence.Play();
             // SE再生
             SePlayer.Instance.Play(rhymeData.Clip.name);
             // ライムテキスト表示
