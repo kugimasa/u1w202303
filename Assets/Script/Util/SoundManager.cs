@@ -18,12 +18,10 @@ namespace Script.Util
         [SerializeField] private float _fadeInDuration;
         [SerializeField] private float _fadeOutDuration;
 
-        private void Start()
-        {
+        private void Awake()
+        {            
             // 音量設定をロードする
             LoadVolumeSetting();
-            // タイトルをフェードイン
-            TitleBGMFadeIn();
         }
 
         /// <summary>
