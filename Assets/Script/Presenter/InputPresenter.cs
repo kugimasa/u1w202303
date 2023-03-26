@@ -15,10 +15,11 @@ namespace Script.Presenter
         [SerializeField, Range(0, 3.0f)] private float _delay;
         [SerializeField] private List<RhymeDataSet> _rhymeDataSets;
         private RhymeDataSet _currentSet;
-        // TODO: 入力ストップフラグ
+        private bool _isMyTurn;
 
         void Update()
         {
+            if (!_isMyTurn) return;
             if (_currentSet == null) return;
             for (var index = 0; index < StaticConst.INPUT_NUM; index++)
             {
@@ -58,6 +59,22 @@ namespace Script.Presenter
             {
                 _rhymeInputViews[i].SetRhymeText(_currentSet.RhymeDataArray[i].Text);
             }
+        }
+
+        /// <summary>
+        /// ターン開始
+        /// </summary>
+        public void OnMyTurnStart()
+        {
+            _isMyTurn = true;
+        }
+
+        /// <summary>
+        /// ターン終了
+        /// </summary>
+        public void OnMyTurnEnd()
+        {
+            _isMyTurn = false;
         }
     }
 }

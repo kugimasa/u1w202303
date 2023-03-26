@@ -48,34 +48,29 @@ namespace Script.View
             _opponentImage.DOFade(0.0f, 1.5f).SetEase(Ease.InCirc).SetLink(gameObject);
         }
 
-        /// <summary>
-        /// ライムをスピット
-        /// </summary>
-        public void RhymeSpit(RhymeData rhymeData)
+        public void RhymeSpit(string rhymeStr)
         {
-            // SE再生
-            var se = rhymeData.Clip;
-            _rhymeSpitSource.PlayOneShot(se);
             // ライムテキスト表示
-            _rhymeLabel.text = rhymeData.Text;
-            var sequence = DOTween.Sequence()
-                .OnStart(() =>
-                {
-                    _opponentRhyme.DOFade(1.0f, 0.0f).SetLink(gameObject);
-                    _rhymeImage.rectTransform.localScale = Vector3.one;
-                })
-                .Append(_rhymeImage.rectTransform.DOScale(1.2f, 2.0f).SetEase(Ease.OutElastic))
-                .SetLink(gameObject);
-            
+            _rhymeLabel.text = rhymeStr;
             _rhymeSequence?.Kill();
             _rhymeSequence = DOTween.Sequence()
                 .OnStart(() => _rhymeImage.rectTransform.localScale = Vector3.one)
                 .Append(_opponentRhyme.DOFade(1.0f, 0.0f))
-                .Append(_rhymeImage.rectTransform.DOScale(1.2f, 1.0f).SetEase(Ease.OutElastic))
-                .Insert(0.75f, _opponentRhyme.DOFade(0.0f, 0.2f))
+                .Append(_rhymeImage.rectTransform.DOScale(1.2f, 1.5f).SetEase(Ease.OutElastic))
+                .Insert(1.25f, _opponentRhyme.DOFade(0.0f, 0.2f))
                 .SetLink(gameObject);
             _rhymeSequence.Play();
-            sequence.Play();
+        }
+
+        /// <summary>
+        /// ライムをSEと一緒にスピット
+        /// </summary>
+        public void RhymeSpitWithAudio(RhymeData rhymeData)
+        {
+            // SE再生
+            var se = rhymeData.Clip;
+            _rhymeSpitSource.PlayOneShot(se);
+            RhymeSpit(rhymeData.Text);
         }
     }
 }

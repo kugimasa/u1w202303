@@ -12,12 +12,18 @@ namespace Script.Timeline.Receiver
         
         public void OnNotify(Playable origin, INotification notification, object context)
         {
-            var marker = notification as RhymeSpitNotification;
-            if (marker == null)
+            var rhymeSpitWithAudioNotification = notification as RhymeSpitWithAudioNotification;
+            if (rhymeSpitWithAudioNotification != null)
             {
+                _opponentView.RhymeSpitWithAudio(rhymeSpitWithAudioNotification.RhymeData);
                 return;
             }
-            _opponentView.RhymeSpit(marker.RhymeData);
+            var rhymeSpitNotification = notification as RhymeSpitNotification;
+            if (rhymeSpitNotification != null)
+            {
+                _opponentView.RhymeSpit(rhymeSpitNotification.RhymeStr);
+                return;
+            }
         }
     }
 }

@@ -448,7 +448,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3888889
+  m_Value: 0.041666668
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2381,6 +2381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1004547206}
   - component: {fileID: 1004547207}
+  - component: {fileID: 1004547212}
   - component: {fileID: 1004547208}
   - component: {fileID: 1004547209}
   - component: {fileID: 1004547210}
@@ -2429,7 +2430,7 @@ PlayableDirector:
   - key: {fileID: -8929999707341097276, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
     value: {fileID: 320487434}
   - key: {fileID: -1157841292399515445, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
-    value: {fileID: 1157563032}
+    value: {fileID: 1004547212}
   - key: {fileID: 8634878664264794050, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
     value: {fileID: 1277201554}
   - key: {fileID: 3856503761836608728, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
@@ -2437,11 +2438,68 @@ PlayableDirector:
   - key: {fileID: -5857383225983091076, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
     value: {fileID: 1004547208}
   - key: {fileID: -8686773191395429668, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
-    value: {fileID: 1157563032}
+    value: {fileID: 1004547212}
+  - key: {fileID: 8634878664264794050, guid: f300e30ac5e8d429a8163d54ba2b45fc, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -5857383225983091076, guid: f300e30ac5e8d429a8163d54ba2b45fc, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: 3856503761836608728, guid: f300e30ac5e8d429a8163d54ba2b45fc, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -8686773191395429668, guid: f300e30ac5e8d429a8163d54ba2b45fc, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 2798239673569532944, guid: f300e30ac5e8d429a8163d54ba2b45fc, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: 8634878664264794050, guid: 24df6ee9203a746d28f5c1282586e233, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -5857383225983091076, guid: 24df6ee9203a746d28f5c1282586e233, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: -8686773191395429668, guid: 24df6ee9203a746d28f5c1282586e233, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 3856503761836608728, guid: 24df6ee9203a746d28f5c1282586e233, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: 2798239673569532944, guid: 24df6ee9203a746d28f5c1282586e233, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: -5727631408750390295, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: 8634878664264794050, guid: 69320c4db841a47b4a88015bf82c07f9, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: 3856503761836608728, guid: 69320c4db841a47b4a88015bf82c07f9, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: 2798239673569532944, guid: 69320c4db841a47b4a88015bf82c07f9, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: -5857383225983091076, guid: 69320c4db841a47b4a88015bf82c07f9, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: -8686773191395429668, guid: 69320c4db841a47b4a88015bf82c07f9, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 6666428969974881949, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -9014866654136522002, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: -1157841292399515445, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: -5727631408750390295, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -8929999707341097276, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: 7411631497097076392, guid: e1ac7161a48a24b7a813d5e5123a6db7, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: 8634878664264794050, guid: 392009d7504114b8e90820b72698f902, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -5857383225983091076, guid: 392009d7504114b8e90820b72698f902, type: 2}
+    value: {fileID: 1004547208}
+  - key: {fileID: -8686773191395429668, guid: 392009d7504114b8e90820b72698f902, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 3856503761836608728, guid: 392009d7504114b8e90820b72698f902, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: 7411631497097076392, guid: 392009d7504114b8e90820b72698f902, type: 2}
+    value: {fileID: 320487434}
   m_ExposedReferences:
     m_References:
     - 4c591ee9ce6ff48bf9ee81d45ae72f4e: {fileID: 1004547208}
+    - 783b515397c8b4b278bfd90cd9c8b970: {fileID: 1004547208}
     - 83945398bc50b4a40917c0f63910919e: {fileID: 1004547208}
+    - 374e63db624f34451b066dbdf4ef2402: {fileID: 1004547208}
+    - a4db565a981a04376ab35fb5bf211de5: {fileID: 1004547208}
 --- !u!114 &1004547208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2513,6 +2571,92 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e899aa41b9f4d02905efa4dc9eab82e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _justTimingScore: 0
+  _justRhymeTypeScore: 0
+--- !u!114 &1004547212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004547205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 6b476fef642a647149c87594f57becaa, type: 2}
+    - {fileID: 11400000, guid: b88923564e522472896387bc04817434, type: 2}
+    - {fileID: 11400000, guid: 006aa70c545e145d18c49124cd112314, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1004547210}
+          m_TargetAssemblyTypeName: Script.View.RhymeView, Assembly-CSharp
+          m_MethodName: OnMyTurnStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1004547209}
+          m_TargetAssemblyTypeName: Script.Presenter.InputPresenter, Assembly-CSharp
+          m_MethodName: OnMyTurnStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1004547210}
+          m_TargetAssemblyTypeName: Script.View.RhymeView, Assembly-CSharp
+          m_MethodName: OnMyTurnEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1004547209}
+          m_TargetAssemblyTypeName: Script.Presenter.InputPresenter, Assembly-CSharp
+          m_MethodName: OnMyTurnEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1004547211}
+          m_TargetAssemblyTypeName: Script.Model.EvaluateModel, Assembly-CSharp
+          m_MethodName: OnBattleStart
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1050627354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2819,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3888889
+  m_Value: 0.041666668
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2921,7 +3065,6 @@ GameObject:
   - component: {fileID: 1157563028}
   - component: {fileID: 1157563030}
   - component: {fileID: 1157563031}
-  - component: {fileID: 1157563032}
   m_Layer: 5
   m_Name: RhymePanel
   m_TagString: Untagged
@@ -3030,137 +3173,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1157563032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157563026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 6b476fef642a647149c87594f57becaa, type: 2}
-    - {fileID: 11400000, guid: b88923564e522472896387bc04817434, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1004547210}
-          m_TargetAssemblyTypeName: Script.View.RhymeView, Assembly-CSharp
-          m_MethodName: OnMyTurnStart
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1004547210}
-          m_TargetAssemblyTypeName: Script.View.RhymeView, Assembly-CSharp
-          m_MethodName: OnMyTurnEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!1001 &1162559647
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1738964808}
-    m_Modifications:
-    - target: {fileID: -6857757120591583021, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: Slider
-      value: 
-      objectReference: {fileID: 1850745702}
-    - target: {fileID: -6857757120591583021, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: CurrentVolume.value
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447302, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: m_Name
-      value: BgmPlayer
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447303, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447303, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: BgmList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966136600610447303, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: BgmList.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6de4ea929e7e547a289bccff9b26d0b2, type: 3}
-    - target: {fileID: 4966136600610447303, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-      propertyPath: BgmList.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 575787e973ac946a1b31258f281e29c2, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
---- !u!4 &1162559648 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4966136600610447301, guid: 906aee0b5431f428f862cd772c9c88d5, type: 3}
-  m_PrefabInstance: {fileID: 1162559647}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1177327897
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,7 +3362,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1738964808}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1277201554
 AudioSource:
@@ -3478,7 +3490,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1738964808}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1302700218
 AudioSource:
@@ -4671,7 +4683,7 @@ PrefabInstance:
       objectReference: {fileID: 835689743}
     - target: {fileID: 5917604986509176630, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176630, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5074,7 +5086,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1162559648}
   - {fileID: 1598404556}
   - {fileID: 1277201553}
   - {fileID: 1302700217}
