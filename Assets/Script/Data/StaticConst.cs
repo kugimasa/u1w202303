@@ -6,5 +6,7 @@ namespace Script.Data
         internal static readonly int BEAT_NUM = 4;
         internal static readonly int INPUT_NUM = 4;
         internal static readonly int OPPONENT_NUM = 3;
+        internal static readonly string BGM_KEY = "BGM_VOLUME_KEY";
+        internal static readonly string SE_KEY = "SE_VOLUME_KEY";
     }
 }
