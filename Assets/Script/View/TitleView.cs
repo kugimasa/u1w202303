@@ -25,11 +25,10 @@ namespace Script.View
             _fadePanel.DOFade(1.0f, 0.0f);
         }
 
-
         /// <summary>
-        ///     タイトル初期化演出
+        ///  初回プレイ時の演出
         /// </summary>
-        public void TitleInitialize()
+        private Sequence OnFirstPlaySequence()
         {
             var titleBgmBpm = 110.0f;
             // 1小節あたりにかける時間
@@ -56,6 +55,48 @@ namespace Script.View
                     _canvasGroup.interactable = true;
                 }))
                 .SetLink(gameObject);
+            return sequence;
+        }
+
+        /// <summary>
+        /// 2回目以降のプレイ
+        /// </summary>
+        /// <returns></returns>
+        private Sequence OnSecondPlaySequence()
+        {
+            // タイトルの初期化演出
+            var sequence = DOTween.Sequence()
+                // フェードイン開始
+                .Join(_fadePanel.DOFade(0.0f, 0.6f))
+                // ボタン表示
+                .Append(_buttonGroup.DOFade(1.0f, 0.6f).SetEase(Ease.OutCubic))
+                .Append(DOVirtual.DelayedCall(0.0f, () =>
+                {
+                    _buttonGroup.interactable = true;
+                    _canvasGroup.interactable = true;
+                }))
+                .SetLink(gameObject);
+            return sequence;
+        }
+
+        /// <summary>
+        ///     タイトル初期化演出
+        /// </summary>
+        public void TitleInitialize(bool isFirstPlay)
+        {
+            var titleBgmBpm = 110.0f;
+            // 1小節あたりにかける時間
+            var secPerBar = StaticConst.MIN_AS_SEC * StaticConst.BEAT_NUM / titleBgmBpm;
+            // 初回プレイシーケンスの作成
+            var sequence = DOTween.Sequence();
+            if (isFirstPlay)
+            {
+                sequence.Append(OnFirstPlaySequence());
+            }
+            else
+            {
+                sequence.Append(OnSecondPlaySequence());
+            }
             // バウンスループシーケンス
             _bounceSequence = DOTween.Sequence()
                 .Append(

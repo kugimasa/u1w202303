@@ -1,4 +1,5 @@
 using System;
+using Script.Data;
 using Script.Util;
 using Script.View;
 using UnityEngine;
@@ -15,10 +16,15 @@ namespace Script.Presenter
         /// </summary>
         public void Start()
         {
-            // BGMのフェードイン処理
-            _soundManager.TitleBGMFadeIn();
+            var isFirstPlay = !PlayerPrefs.HasKey(StaticConst.GAME_KEY);
+            if (isFirstPlay)
+            {
+                PlayerPrefs.SetString(StaticConst.GAME_KEY, "HasKey");
+            }
             // タイトル画面初期化
-            _titleView.TitleInitialize();
+            _titleView.TitleInitialize(isFirstPlay);
+            // BGMの再生
+            _soundManager.TitleBGMFadeIn(isFirstPlay);
         }
 
         /// <summary>
@@ -28,6 +34,8 @@ namespace Script.Presenter
         {
             // タイトルをフェードアウト
             _titleView.TitleFadeOut();
+            // BGMのボリュームを落とす
+            _soundManager.TitleBGMFadeOut(0.1f, 1.0f);
             // イントロスタート
         }
 

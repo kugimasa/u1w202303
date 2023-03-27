@@ -16,7 +16,6 @@ namespace Script.Util
         [SerializeField] private Slider _bgmSlider;
         [SerializeField] private Slider _seSlider;
         [SerializeField] private float _fadeInDuration;
-        [SerializeField] private float _fadeOutDuration;
 
         private void Awake()
         {            
@@ -60,12 +59,19 @@ namespace Script.Util
         /// <summary>
         /// タイトルBGMのフェードイン処理
         /// </summary>
-        public void TitleBGMFadeIn()
+        public void TitleBGMFadeIn(bool isFirstPlay)
         {
             var currentVolume = _bgmSource.volume;
             _bgmSource.clip = _titleClip;
             _bgmSource.loop = true;
             _bgmSource.volume = 0.0f;
+            if (!isFirstPlay)
+            {
+                var titleBgmBpm = 110.0f;
+                // 1小節あたりにかける時間
+                var secPerBar = StaticConst.MIN_AS_SEC * StaticConst.BEAT_NUM / titleBgmBpm;
+                _bgmSource.time = secPerBar * 4.0f;
+            }
             _bgmSource.Play();
             DOVirtual.Float(0.0f, currentVolume, _fadeInDuration, value => _bgmSource.volume = value).SetLink(gameObject);
         }
@@ -73,13 +79,20 @@ namespace Script.Util
         /// <summary>
         /// タイトルBGMのフェードアウト処理
         /// </summary>
-        public void TitleBGMFadeOut()
+        public void TitleBGMFadeOut(float endVolume, float duration)
         {
             var currentVolume = _bgmSource.volume;
-            DOVirtual.Float(currentVolume, 0.0f, _fadeOutDuration, value => _bgmSource.volume = value).SetLink(gameObject);
-            _bgmSource.Stop();
-            _bgmSource.loop = false;
-            _bgmSource.volume = currentVolume;
+            DOVirtual.Float(currentVolume, endVolume, duration, value => _bgmSource.volume = value)
+                .OnComplete(() =>
+                {
+                    if (endVolume == 0.0f)
+                    {
+                        _bgmSource.Stop();
+                        _bgmSource.loop = false;
+                        _bgmSource.volume = currentVolume;
+                    }
+                })
+                .SetLink(gameObject);
         }
     }
 }
