@@ -9,8 +9,8 @@ namespace Script.View
     {
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private CanvasGroup _buttonGroup;
-        [SerializeField] private Image _fadePanel;
         [SerializeField] private Image _titleImage;
+        [SerializeField] private FadeView _fadeView;
 
         private Sequence _bounceSequence;
 
@@ -21,8 +21,6 @@ namespace Script.View
             _buttonGroup.interactable = false;
             _canvasGroup.alpha = 1.0f;
             _canvasGroup.interactable = false;
-            // 暗転開始
-            _fadePanel.DOFade(1.0f, 0.0f);
         }
 
         /// <summary>
@@ -45,8 +43,8 @@ namespace Script.View
                 })
                 // タイトル縮小開始
                 .Append(_titleImage.rectTransform.DOScale(Vector3.one, titleFadeInDuration))
-                // フェードイン開始
-                .Join(_fadePanel.DOFade(0.0f, titleFadeInDuration))
+                // フェードアウト開始
+                .Join(_fadeView.FadeOutTween(titleFadeInDuration))
                 // ボタン表示
                 .Append(_buttonGroup.DOFade(1.0f, 0.6f).SetEase(Ease.OutCubic))
                 .Append(DOVirtual.DelayedCall(0.0f, () =>
@@ -66,8 +64,8 @@ namespace Script.View
         {
             // タイトルの初期化演出
             var sequence = DOTween.Sequence()
-                // フェードイン開始
-                .Join(_fadePanel.DOFade(0.0f, 0.6f))
+                // フェードアウト開始
+                .Join(_fadeView.FadeOutTween(0.6f))
                 // ボタン表示
                 .Append(_buttonGroup.DOFade(1.0f, 0.6f).SetEase(Ease.OutCubic))
                 .Append(DOVirtual.DelayedCall(0.0f, () =>
@@ -104,9 +102,10 @@ namespace Script.View
                             value => _titleImage.rectTransform.localScale = value)
                         .SetLoops(2, LoopType.Restart)
                         .SetEase(Ease.OutElastic))
+                .SetLoops(-1, LoopType.Restart)
                 .SetLink(gameObject);
             // 結合する
-            sequence.Append(_bounceSequence.SetLoops(-1, LoopType.Restart));
+            sequence.Append(_bounceSequence);
             sequence.Play();
         }
 

@@ -34,6 +34,10 @@ namespace Script.Util
                 _bgmSource.volume = volume;
                 _bgmSlider.value = volume;
             }
+            else
+            {
+                SetBgmVal(StaticConst.INIT_VOLUME);
+            }
 
             if (PlayerPrefs.HasKey(StaticConst.SE_KEY))
             {
@@ -41,6 +45,10 @@ namespace Script.Util
                 _seSource.volume = volume;
                 _sePlayerVolumeController.CurrentVolume.Value = volume;
                 _seSlider.value = volume;
+            }
+            else
+            {
+                SetSeVal(StaticConst.INIT_VOLUME);
             }
         }
         
@@ -81,16 +89,22 @@ namespace Script.Util
         /// </summary>
         public void TitleBGMFadeOut(float endVolume, float duration)
         {
-            var currentVolume = _bgmSource.volume;
-            DOVirtual.Float(currentVolume, endVolume, duration, value => _bgmSource.volume = value)
+            DOVirtual.Float(_bgmSource.volume, endVolume, duration, value => _bgmSource.volume = value)
+                .SetLink(gameObject);
+        }
+        
+        /// <summary>
+        /// タイトルBGMをフェードさせる
+        /// </summary>
+        public void TitleBGMFadeOutStop(float duration)
+        {
+            DOVirtual.Float(_bgmSource.volume, 0.0f, duration, value => _bgmSource.volume = value)
                 .OnComplete(() =>
                 {
-                    if (endVolume == 0.0f)
-                    {
-                        _bgmSource.Stop();
-                        _bgmSource.loop = false;
-                        _bgmSource.volume = currentVolume;
-                    }
+                    _bgmSource.Stop();
+                    _bgmSource.loop = false;
+                    // キャッシュの値で保存 
+                    _bgmSource.volume = PlayerPrefs.GetFloat(StaticConst.BGM_KEY);;
                 })
                 .SetLink(gameObject);
         }
