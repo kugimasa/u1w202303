@@ -10,8 +10,10 @@ namespace Script.View
     {
         [SerializeField] private Sprite[] _opponentSprites = new Sprite[StaticConst.OPPONENT_NUM];
         [SerializeField] private Sprite[] _opponentSprites2 = new Sprite[StaticConst.OPPONENT_NUM];
+        [SerializeField] private string[] _opponentNames = new string[StaticConst.OPPONENT_NUM];
         [SerializeField] private Image _rhymeImage;
         [SerializeField] private Image _opponentImage;
+        [SerializeField] private TextMeshProUGUI _opponentNameLabel;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
         [SerializeField] private CanvasGroup _opponentPanel;
         [SerializeField] private CanvasGroup _opponentRhyme;
@@ -36,6 +38,7 @@ namespace Script.View
         {
             _opponentId = id;
             _opponentImage.sprite = _opponentSprites[id];
+            _opponentNameLabel.text = _opponentNames[id];
         }
 
         /// <summary>

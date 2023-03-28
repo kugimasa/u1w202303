@@ -40,8 +40,7 @@ namespace Script.Presenter
             _titleView.TitleFadeOut();
             // BGMのボリュームを落とす
             _soundManager.TitleBGMFadeOut(0.1f, 1.0f);
-            // 2秒後イントロスタート
-            DOVirtual.DelayedCall(2.0f,() => _timelineManager.PlayIntro(_isFirstPlay));
+            _timelineManager.PlayIntro(_isFirstPlay);
         }
 
         /// <summary>

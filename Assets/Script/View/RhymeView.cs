@@ -3,6 +3,7 @@ using naichilab.EasySoundPlayer.Scripts;
 using Script.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Script.View
@@ -15,8 +16,8 @@ namespace Script.View
         [SerializeField] private Sprite _playerSprite;
         [SerializeField] private Sprite _playerSprite2;
         [SerializeField] private CanvasGroup _challengerPanel;
+        [SerializeField] private CanvasGroup _rhymePanel;
         [SerializeField] private CanvasGroup _myRhyme;
-        [SerializeField] private CanvasGroup _rhymeViewCanvasGroup;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
         private Sequence _noteImagesSequence;
         private Sequence _playerImageSequence;
@@ -26,6 +27,7 @@ namespace Script.View
         {
             // 初期状態では透明
             _challengerPanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _rhymePanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _playerImage.sprite = _playerSprite;
         }
@@ -105,7 +107,7 @@ namespace Script.View
         public void OnMyTurnStart()
         {
             // TODO: YOUR TURN 
-            DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymeViewCanvasGroup.alpha = value)
+            DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)
                 .SetLink(gameObject);
         }
@@ -114,7 +116,7 @@ namespace Script.View
         {
             // TODO: 〇〇 TURN
             // フェードアウト
-            DOVirtual.Float(1.0f, 0.0f, 0.6f, value => _rhymeViewCanvasGroup.alpha = value)
+            DOVirtual.Float(1.0f, 0.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)
                 .SetLink(gameObject);
         }

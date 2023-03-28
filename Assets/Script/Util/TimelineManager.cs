@@ -22,10 +22,19 @@ namespace Script.Util
         public void PlayIntro(bool isFirstPlay)
         {
             _playableDirector.playableAsset = _intro;
-            var startTime = 0.0;
-            if (!isFirstPlay) startTime = 26.0;
-            _playableDirector.time = startTime;
-            _playableDirector.Play();
+            if (isFirstPlay)
+            {
+                DOVirtual.DelayedCall(2.0f, () =>
+                {
+                    _playableDirector.time = 0.0;
+                    _playableDirector.Play();
+                }).SetLink(gameObject);
+            }
+            else
+            {
+                _playableDirector.time = 26.0;
+                _playableDirector.Play();
+            }
         }
         
         /// <summary>
@@ -33,7 +42,7 @@ namespace Script.Util
         /// </summary>
         public void PlayBattle(int id)
         {
-            DOVirtual.DelayedCall(1.0f, () =>
+            DOVirtual.DelayedCall(2.0f, () =>
             {
                 switch (id)
                 {

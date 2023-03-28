@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Script.Data;
 using UnityEngine;
@@ -102,7 +103,8 @@ namespace Script.View
                             value => _titleImage.rectTransform.localScale = value)
                         .SetLoops(2, LoopType.Restart)
                         .SetEase(Ease.OutElastic))
-                .SetLoops(-1, LoopType.Restart)
+                // FIXME: 便宜上
+                .SetLoops(Int32.MaxValue, LoopType.Restart)
                 .SetLink(gameObject);
             // 結合する
             sequence.Append(_bounceSequence);

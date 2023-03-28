@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,18 +6,25 @@ namespace Script.View
 {
     public class BattleSwitchView : MonoBehaviour
     {
-        [SerializeField] private Button _battle1StartButton;
+        [SerializeField] private CanvasGroup _battle1StartButton;
 
         private void Awake()
         {
             _battle1StartButton.interactable = false;
-            // TODO: 初期化時は透明
+            _battle1StartButton.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         public void ShowBattle1()
         {
-            // TODO: 表示フェードイン
-            _battle1StartButton.interactable = true;
+            _battle1StartButton.DOFade(1.0f, 2.0f)
+                .OnComplete(() => _battle1StartButton.interactable = true)
+                .SetLink(gameObject);
+        }
+        
+        public void HideBattle1()
+        {
+            _battle1StartButton.interactable = false;
+            _battle1StartButton.DOFade(0.0f, 2.0f).SetLink(gameObject);
         }
     }
 }
