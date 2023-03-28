@@ -1,9 +1,9 @@
 using DG.Tweening;
 using naichilab.EasySoundPlayer.Scripts;
 using Script.Data;
+using Script.Model;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Script.View
@@ -19,6 +19,8 @@ namespace Script.View
         [SerializeField] private CanvasGroup _rhymePanel;
         [SerializeField] private CanvasGroup _myRhyme;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
+        [SerializeField] private EvaluateModel _evaluateModel;
+        [SerializeField] private NoteView _noteView;
         private Sequence _noteImagesSequence;
         private Sequence _playerImageSequence;
         private Sequence _rhymeSequence;
@@ -82,18 +84,10 @@ namespace Script.View
         public void OnJustTiming()
         {
             // 演出
+            SePlayer.Instance.Play("audience");
+            // TODO: コンボUI
             // スコア
             Debug.Log($"<color=green>Nice Timing!!</color>");
-        }
-
-        /// <summary>
-        ///     ライムタイプを正しく入力できた際の表示
-        /// </summary>
-        public void OnJustRhyme()
-        {
-            // 演出
-            // スコア
-            Debug.Log($"<color=yellow>Nice RhymeType!!</color>");
         }
 
         /// <summary>
@@ -106,7 +100,10 @@ namespace Script.View
 
         public void OnMyTurnStart()
         {
-            // TODO: YOUR TURN 
+            // 表示するたびにスライダーの初期化をする
+            // TODO: このタイミングではセットされていない
+            // FIXME: PrecisionはEvaluateModelでセットしたほうが良いかも...
+            _noteView.InitNoteSlider(_evaluateModel.Precision);
             DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)
                 .SetLink(gameObject);
@@ -114,7 +111,7 @@ namespace Script.View
         
         public void OnMyTurnEnd()
         {
-            // TODO: 〇〇 TURN
+            
             // フェードアウト
             DOVirtual.Float(1.0f, 0.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)

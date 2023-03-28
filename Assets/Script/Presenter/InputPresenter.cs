@@ -29,15 +29,14 @@ namespace Script.Presenter
                     // ライムをスピット
                     if (rhymeInput.TryRhymeSpit(_delay))
                     {
-                        // タイミング判定処理
-                        if (_evaluateModel.EvaluateT())
-                        {
-                            _rhymeView.OnJustTiming();
-                        }
                         // ライムタイプ判定
                         if (_evaluateModel.EvaluateRhymeType(rhymeInput.RhymeType))
                         {
-                            _rhymeView.OnJustRhyme();
+                            // タイミング判定処理
+                            if (_evaluateModel.EvaluateT())
+                            {
+                                _rhymeView.OnJustTiming();
+                            }
                         }
                         // 表示 & 音声処理
                         _rhymeInputViews[index].OnInput();

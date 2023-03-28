@@ -125,5 +125,7 @@ namespace Script.View
             // ボタンは押せないようにする
             _canvasGroup.interactable = false;
         }
+        
+        // TODO: タイトルへのフェードイン
     }
 }

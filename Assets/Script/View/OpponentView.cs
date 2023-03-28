@@ -22,6 +22,10 @@ namespace Script.View
         private Sequence _rhymeSequence;
         private Sequence _opponentImageSequence;
 
+        // FIXME: 本来であれば、OpponentPresenterを用意するべきだった
+        // だがしかし、間に合わないのでええいままよ！！
+        public int OpponentId => _opponentId;
+
         private void Awake()
         {
             // 初期状態では透明

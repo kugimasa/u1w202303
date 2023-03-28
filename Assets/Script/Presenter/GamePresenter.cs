@@ -15,6 +15,8 @@ namespace Script.Presenter
 
         private bool _isFirstPlay;
 
+        public bool IsFirstPlay => _isFirstPlay;
+
         /// <summary>
         /// ゲーム実行時の処理
         /// </summary>

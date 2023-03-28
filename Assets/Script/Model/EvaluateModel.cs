@@ -5,12 +5,17 @@ namespace Script.Model
 {
     public class EvaluateModel : MonoBehaviour
     {
+        [SerializeField] private float _maxScore;
         [SerializeField] private int _justTimingScore;
         [SerializeField] private int _justRhymeTypeScore;
+        [SerializeField] private int[] _opponentClearScore = new int[StaticConst.OPPONENT_NUM];
+        [SerializeField] private double _precision;
         private RhymeType _rhymeType;
         private double _t;
-        private double _precision;
         private int _score;
+
+        public float Score01 => _score / _maxScore;
+        public double Precision => _precision;
 
         /// <summary>
         /// バトル開始時はリセット
@@ -27,7 +32,9 @@ namespace Script.Model
         {
             _rhymeType = rhymeType;
             _t = t;
-            _precision = precision;
+            // FIXME: 一旦precisionはTimelineではなく、EvaluateModelでセットする
+            // TODO: バトルごとに精度を分けたい
+            // _precision = precision;
         }
 
         /// <summary>
@@ -36,7 +43,7 @@ namespace Script.Model
         /// <returns>判定</returns>
         public bool EvaluateT()
         {
-            if (_t <= _precision || 1.0 - _precision <= _t)
+            if (1.0 - _precision <= _t)
             {
                 // スコア加算
                 _score += _justTimingScore;
@@ -64,10 +71,9 @@ namespace Script.Model
         /// <summary>
         ///     勝者の判定
         /// </summary>
-        /// <param name="score"></param>
-        /// <returns></returns>
-        public bool EvaluateWinner(int opponentScore)
+        public bool EvaluateWinner(int opponentId)
         {
+            var opponentScore = _opponentClearScore[opponentId];
             // FIXME: 同率だった場合は勝ち
             if (_score == opponentScore)
             {
@@ -78,6 +84,11 @@ namespace Script.Model
                 return true;
             }
             return false;
+        }
+
+        public float GetOpponentScore01(int opponentId)
+        {
+            return _opponentClearScore[opponentId] / _maxScore;
         }
     }
 }

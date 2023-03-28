@@ -1,5 +1,7 @@
+using System;
 using DG.Tweening;
 using Script.Data;
+using Script.Presenter;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -19,6 +21,13 @@ namespace Script.Util
         [SerializeField] private TimelineAsset _star1;
         [SerializeField] private TimelineAsset _star2;
         [SerializeField] private TimelineAsset _star3;
+
+        private GamePresenter _gamePresenter;
+
+        private void Start()
+        {
+            _gamePresenter = FindObjectOfType<GamePresenter>();
+        }
 
         public void PlayIntro(bool isFirstPlay)
         {
@@ -51,7 +60,7 @@ namespace Script.Util
                     case 1:
                         _playableDirector.playableAsset = _battle1;
                         // ２回目以降の場合
-                        if (PlayerPrefs.HasKey(StaticConst.GAME_KEY))
+                        if (!_gamePresenter.IsFirstPlay)
                         {
                             _playableDirector.time = 12.6;
                         }

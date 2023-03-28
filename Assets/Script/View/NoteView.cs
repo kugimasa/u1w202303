@@ -11,13 +11,15 @@ namespace Script.View
         [SerializeField] private Slider _noteSliderL;
         [SerializeField] private Image _noteFillR;
         [SerializeField] private Image _noteFillL;
+        [SerializeField] private Image _rangeImage;
         [SerializeField] private Color[] _rhymeTypeColors = new Color[StaticConst.INPUT_NUM];
+
+        private const float _rangeMaxWidth = 1320.0f;
 
         private void Awake()
         {
             // 初期化
-            _noteSliderR.value = 1.0f;
-            _noteSliderL.value = 1.0f;
+            InitNoteSlider(0.0);
         }
 
         /// <summary>
@@ -30,7 +32,15 @@ namespace Script.View
             SetRhymeColor(rhymeType);
             SetSliderValue(t);
         }
-        
+
+        public void InitNoteSlider(double precision)
+        {
+            _noteSliderR.value = 1.0f;
+            _noteSliderL.value = 1.0f;
+            _rangeImage.rectTransform.sizeDelta = new Vector2((float)(_rangeMaxWidth * precision), 40.8f);
+            Debug.Log(_rangeImage.rectTransform.sizeDelta);
+        }
+
         private void SetRhymeColor(RhymeType rhymeType)
         {
             _noteFillR.color = _rhymeTypeColors[(int)rhymeType];
