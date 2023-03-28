@@ -13,6 +13,7 @@ namespace Script.View
         [SerializeField] private Image _rhymeImage;
         [SerializeField] private Image _opponentImage;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
+        [SerializeField] private CanvasGroup _opponentPanel;
         [SerializeField] private CanvasGroup _opponentRhyme;
         [SerializeField] private AudioSource _rhymeSpitSource;
         private int _opponentId;
@@ -22,6 +23,7 @@ namespace Script.View
         private void Awake()
         {
             // 初期状態では透明
+            _opponentPanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _opponentImage.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _opponentRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
@@ -41,7 +43,8 @@ namespace Script.View
         /// </summary>
         public void OpponentEnter()
         {
-            _opponentImage.DOFade(1.0f, 1.5f).SetEase(Ease.InCirc).SetLink(gameObject);
+            _opponentPanel.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+            _opponentImage.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 
         /// <summary>
@@ -49,7 +52,8 @@ namespace Script.View
         /// </summary>
         public void OpponentExit()
         {
-            _opponentImage.DOFade(0.0f, 1.5f).SetEase(Ease.InCirc).SetLink(gameObject);
+            _opponentPanel.DOFade(0.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+            _opponentImage.DOFade(0.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 
         public void RhymeSpit(string rhymeStr)

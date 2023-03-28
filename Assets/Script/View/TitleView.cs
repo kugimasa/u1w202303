@@ -36,8 +36,8 @@ namespace Script.View
             var sequence = DOTween.Sequence()
                 .OnStart(() =>
                 {
-                    // 初期値は10
-                    _titleImage.rectTransform.localScale = Vector3.one * 5.0f;
+                    // 初期値
+                    _titleImage.rectTransform.localScale = Vector3.one * 2.0f;
                     // ボタンは見えない
                     _buttonGroup.alpha = 0.0f;
                 })

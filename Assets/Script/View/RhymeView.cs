@@ -14,6 +14,7 @@ namespace Script.View
         [SerializeField] private Image _playerImage;
         [SerializeField] private Sprite _playerSprite;
         [SerializeField] private Sprite _playerSprite2;
+        [SerializeField] private CanvasGroup _challengerPanel;
         [SerializeField] private CanvasGroup _myRhyme;
         [SerializeField] private CanvasGroup _rhymeViewCanvasGroup;
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
@@ -24,6 +25,7 @@ namespace Script.View
         private void Awake()
         {
             // 初期状態では透明
+            _challengerPanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _playerImage.sprite = _playerSprite;
         }
@@ -90,6 +92,14 @@ namespace Script.View
             // 演出
             // スコア
             Debug.Log($"<color=yellow>Nice RhymeType!!</color>");
+        }
+
+        /// <summary>
+        /// チャレンジャーの表示演出
+        /// </summary>
+        public void ShowChallengerPanel()
+        {
+            _challengerPanel.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 
         public void OnMyTurnStart()

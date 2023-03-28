@@ -92,11 +92,20 @@ namespace Script.Util
             DOVirtual.Float(_bgmSource.volume, endVolume, duration, value => _bgmSource.volume = value)
                 .SetLink(gameObject);
         }
+
+        /// <summary>
+        /// BGMソースのボリュームをフェードインさせる
+        /// </summary>
+        public void BGMFadeInVolume(float duration)
+        {
+            DOVirtual.Float(0.0f, _bgmSource.volume, duration, value => _bgmSource.volume = value)
+                .SetLink(gameObject);
+        }
         
         /// <summary>
-        /// タイトルBGMをフェードさせる
+        /// BGMをフェードアウトし停止する
         /// </summary>
-        public void TitleBGMFadeOutStop(float duration)
+        public void BGMFadeOutStop(float duration)
         {
             DOVirtual.Float(_bgmSource.volume, 0.0f, duration, value => _bgmSource.volume = value)
                 .OnComplete(() =>
