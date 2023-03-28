@@ -122,6 +122,8 @@ namespace Script.View
             DOVirtual.Float(1.0f, 0.0f, 2.0f, value => _canvasGroup.alpha = value)
                 .SetEase(Ease.OutCirc)
                 .SetLink(gameObject);
+            // ボタンは押せないようにする
+            _canvasGroup.interactable = false;
         }
     }
 }
