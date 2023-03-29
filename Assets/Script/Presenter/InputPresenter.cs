@@ -35,9 +35,9 @@ namespace Script.Presenter
                         if (_evaluateModel.EvaluateRhymeType(rhymeInput.RhymeType))
                         {
                             // タイミング判定処理
-                            if (_evaluateModel.EvaluateT())
+                            if (_evaluateModel.EvaluateT(out int comboNum))
                             {
-                                _rhymeView.OnJustTiming();
+                                _rhymeView.OnJustTiming(comboNum);
                                 // ゲージの更新
                                 _gaugeSliderView.SetChallengerSliderGauge(_evaluateModel.Score01);
                             }

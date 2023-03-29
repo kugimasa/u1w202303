@@ -23,10 +23,10 @@ namespace Script.View
         [SerializeField] private EvaluateModel _evaluateModel;
         [SerializeField] private NoteView _noteView;
         [SerializeField] private SoundManager _soundManager;
+        [SerializeField] private RectTransform[] _comboText = new RectTransform[StaticConst.BEAT_NUM];
         private Sequence _noteImagesSequence;
         private Sequence _playerImageSequence;
         private Sequence _rhymeSequence;
-        private int _justComboCount;
         
         private void Awake()
         {
@@ -36,7 +36,23 @@ namespace Script.View
             _rhymePanel.interactable = false;
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _playerImage.sprite = _playerSprite;
-            _justComboCount = 0;
+            foreach (var comboText in _comboText)
+            {
+                comboText.GetComponent<TextMeshProUGUI>().alpha = 0.0f;
+            }
+        }
+
+        private void PlayComboSequence(int index)
+        {
+            var comboSequence = DOTween.Sequence()
+                .OnStart(() => _comboText[index].GetComponent<TextMeshProUGUI>().alpha = 1.0f)
+                .SetLoops(4, LoopType.Yoyo)
+                .Append(_comboText[index].DOScale(1.3f, 0.3f))
+                .Join(_comboText[index].DOScale(2.0f, 0.3f))
+                .Join(_comboText[index].DOLocalRotate(new Vector3(0.0f, 0.0f, 10.0f), 0.3f))
+                .OnComplete(() => _comboText[index].GetComponent<TextMeshProUGUI>().alpha = 0.0f)
+                .SetLink(gameObject);
+            comboSequence.Play();
         }
 
         /// <summary>
@@ -88,13 +104,18 @@ namespace Script.View
         /// <summary>
         ///     タイミングよく入力できた際の表示
         /// </summary>
-        public void OnJustTiming()
+        public void OnJustTiming(int combo)
         {
             // 演出
-            SePlayer.Instance.Play("audience");
-            // TODO: コンボUI
-            // スコア
-            Debug.Log($"<color=green>Nice Timing!!</color>");
+            for (int i = 0; i < combo; i++)
+            {
+                PlayComboSequence(i);
+                if (i == 3)
+                {
+                    
+                    SePlayer.Instance.Play("audience");
+                }
+            }
         }
 
         /// <summary>
@@ -102,7 +123,6 @@ namespace Script.View
         /// </summary>
         public void ChallengerEnter()
         {
-            _justComboCount = 0;
             _challengerPanel.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 

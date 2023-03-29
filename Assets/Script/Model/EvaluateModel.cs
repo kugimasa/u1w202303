@@ -12,6 +12,7 @@ namespace Script.Model
         private RhymeType _rhymeType;
         private double _t;
         private int _score;
+        private int _combo;
 
         public float Score01 => _score / _maxScore;
         public double Precision => _precisions[0];
@@ -22,6 +23,7 @@ namespace Script.Model
         public void OnBattleStart()
         {
             _score = 0;
+            _combo = 0;
         }
 
         /// <summary>
@@ -37,12 +39,22 @@ namespace Script.Model
         ///     タイミングの判定を行う
         /// </summary>
         /// <returns>判定</returns>
-        public bool EvaluateT()
+        public bool EvaluateT(out int comboNum)
         {
+            comboNum = _combo;
             if (1.0 - _precisions[0] <= _t)
             {
+                // ミスってもコンボは減らない
+                _combo++;
+                comboNum = _combo;
                 // スコア加算
                 _score += _justTimingScore;
+                // コンボの場合スコア２倍
+                if (_combo == StaticConst.BEAT_NUM)
+                {
+                    _combo = 0;
+                    _score += _justTimingScore;
+                }
                 return true;
             }
             return false;
