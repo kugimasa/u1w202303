@@ -11,14 +11,12 @@ namespace Script.Timeline.Behaviour
         private VersePresenter _versePresenter;
         private List<RhymeType> _rhymeTypes;
         private double _speed;
-        private double _precision;
         private double _secPerBar;
         private int _currentIndex;
 
-        private int GetCurrentIndex(double div)
+        private int GetCurrentIndex(int num)
         {
-            int index = (int)(div - _precision);
-            index = Mathf.Max(0, index);
+            var index = Mathf.Max(0, num);
             if (index >= _rhymeTypes.Count)
             {
                 return 0;
@@ -29,14 +27,13 @@ namespace Script.Timeline.Behaviour
         /// <summary>
         /// 初期化処理
         /// </summary>
-        public void SetVersePresenter(VersePresenter versePresenter, List<RhymeType> rhymeTypes, double bpm, double speed, double precision)
+        public void SetVersePresenter(VersePresenter versePresenter, List<RhymeType> rhymeTypes, double bpm, double speed)
         {
             _versePresenter = versePresenter;
             _rhymeTypes = rhymeTypes;
             // 1小節あたりにかける時間
             _secPerBar = StaticConst.MIN_AS_SEC * StaticConst.BEAT_NUM / bpm;
             _speed = speed;
-            _precision = precision;
         }
     
         /// <summary>
@@ -52,12 +49,13 @@ namespace Script.Timeline.Behaviour
             var div = time * _speed / _secPerBar;
             var t = div - (int)div;
             // 現在のインデックスの更新
-            _currentIndex = GetCurrentIndex(div);
+            _currentIndex = GetCurrentIndex((int)div);
             // TODO: 表示の更新は毎フレーム出なくて良い
             var isUpdateRhymeData = true;
+            // TODO: ライムタイプの選出方法
             var rhymeType = _rhymeTypes[_currentIndex];
             // ビート位置をセット
-            _versePresenter.SetBeatParam(isUpdateRhymeData, rhymeType, t, _precision);
+            _versePresenter.SetBeatParam(isUpdateRhymeData, rhymeType, t);
             base.ProcessFrame(playable, info, playerData);
         }
     }

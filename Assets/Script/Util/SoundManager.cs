@@ -117,5 +117,10 @@ namespace Script.Util
                 })
                 .SetLink(gameObject);
         }
+
+        public void PlaySe(AudioClip clip)
+        {
+            _seSource.PlayOneShot(clip);
+        }
     }
 }

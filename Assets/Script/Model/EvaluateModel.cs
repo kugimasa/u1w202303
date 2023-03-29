@@ -7,15 +7,14 @@ namespace Script.Model
     {
         [SerializeField] private float _maxScore;
         [SerializeField] private int _justTimingScore;
-        [SerializeField] private int _justRhymeTypeScore;
         [SerializeField] private int[] _opponentClearScore = new int[StaticConst.OPPONENT_NUM];
-        [SerializeField] private double _precision;
+        [SerializeField] private double[] _precisions = new double[StaticConst.OPPONENT_NUM];
         private RhymeType _rhymeType;
         private double _t;
         private int _score;
 
         public float Score01 => _score / _maxScore;
-        public double Precision => _precision;
+        public double Precision => _precisions[0];
 
         /// <summary>
         /// バトル開始時はリセット
@@ -28,13 +27,10 @@ namespace Script.Model
         /// <summary>
         ///     現在の入力位置をセット
         /// </summary>
-        public void SetParam(RhymeType rhymeType, double t, double precision)
+        public void SetParam(RhymeType rhymeType, double t)
         {
             _rhymeType = rhymeType;
             _t = t;
-            // FIXME: 一旦precisionはTimelineではなく、EvaluateModelでセットする
-            // TODO: バトルごとに精度を分けたい
-            // _precision = precision;
         }
 
         /// <summary>
@@ -43,7 +39,7 @@ namespace Script.Model
         /// <returns>判定</returns>
         public bool EvaluateT()
         {
-            if (1.0 - _precision <= _t)
+            if (1.0 - _precisions[0] <= _t)
             {
                 // スコア加算
                 _score += _justTimingScore;
@@ -61,8 +57,6 @@ namespace Script.Model
         {
             if (inputRhymeType == _rhymeType)
             {
-                // スコア加算
-                _score += _justRhymeTypeScore;
                 return true;
             }
             return false;

@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using Script.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Script.View
@@ -12,6 +13,7 @@ namespace Script.View
         [SerializeField] private CanvasGroup _buttonGroup;
         [SerializeField] private Image _titleImage;
         [SerializeField] private FadeView _fadeView;
+        [SerializeField] private CanvasGroup _returnToTitle;
 
         private Sequence _bounceSequence;
 
@@ -22,6 +24,8 @@ namespace Script.View
             _buttonGroup.interactable = false;
             _canvasGroup.alpha = 1.0f;
             _canvasGroup.interactable = false;
+            _returnToTitle.alpha = 0.0f;
+            _returnToTitle.interactable = false;
         }
 
         /// <summary>
@@ -125,7 +129,23 @@ namespace Script.View
             // ボタンは押せないようにする
             _canvasGroup.interactable = false;
         }
+
+        // タイトルへ戻るボタンを表示
+        public void ShowReturnToTitleButton()
+        {
+            _fadeView.FadeIn(1.0f);
+            _returnToTitle.DOFade(1.0f, 1.0f)
+                .SetEase(Ease.OutCubic)
+                .OnComplete(() => _returnToTitle.interactable = true)
+                .SetLink(gameObject);
+        }
         
-        // TODO: タイトルへのフェードイン
+        // タイトルを際読み込み
+        public void ReturnToTitle()
+        {
+            // DOTweenを全てKillする必要がある...??
+            DOTween.KillAll();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

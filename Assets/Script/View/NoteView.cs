@@ -38,7 +38,6 @@ namespace Script.View
             _noteSliderR.value = 1.0f;
             _noteSliderL.value = 1.0f;
             _rangeImage.rectTransform.sizeDelta = new Vector2((float)(_rangeMaxWidth * precision), 40.8f);
-            Debug.Log(_rangeImage.rectTransform.sizeDelta);
         }
 
         private void SetRhymeColor(RhymeType rhymeType)

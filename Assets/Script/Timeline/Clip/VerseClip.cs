@@ -16,7 +16,6 @@ namespace Script.Timeline.Clip
         [SerializeField] private List<RhymeType> _rhymeTypes = new List<RhymeType>();
         [SerializeField] private double _bpm;
         [SerializeField] private double _speed;
-        [SerializeField] private double _precision;
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
@@ -26,7 +25,7 @@ namespace Script.Timeline.Clip
                 return default;
             }
             var behaviour = new VerseBehaviour();
-            behaviour.SetVersePresenter(resolvedVersePresenter, _rhymeTypes, _bpm, _speed, _precision);
+            behaviour.SetVersePresenter(resolvedVersePresenter, _rhymeTypes, _bpm, _speed);
             var playable = ScriptPlayable<VerseBehaviour>.Create(graph, behaviour);
             return playable;
         }

@@ -21,6 +21,7 @@ namespace Script.Util
         [SerializeField] private TimelineAsset _star1;
         [SerializeField] private TimelineAsset _star2;
         [SerializeField] private TimelineAsset _star3;
+        [SerializeField] private TimelineAsset _ending;
 
         private GamePresenter _gamePresenter;
 
@@ -125,6 +126,13 @@ namespace Script.Util
                     _playableDirector.playableAsset = _star1;
                     break;
             }
+            _playableDirector.Play();
+        }
+
+        public void PlayEnding()
+        {
+            _playableDirector.time = 0.0;
+            _playableDirector.playableAsset = _ending;
             _playableDirector.Play();
         }
     }

@@ -14,6 +14,7 @@ namespace Script.Presenter
         [SerializeField] private RhymeInputView[] _rhymeInputViews = new RhymeInputView[StaticConst.INPUT_NUM];
         [SerializeField, Range(0, 3.0f)] private float _delay;
         [SerializeField] private List<RhymeDataSet> _rhymeDataSets;
+        [SerializeField] private GaugeSliderView _gaugeSliderView;
         private RhymeDataSet _currentSet;
         private bool _isMyTurn;
 
@@ -36,6 +37,8 @@ namespace Script.Presenter
                             if (_evaluateModel.EvaluateT())
                             {
                                 _rhymeView.OnJustTiming();
+                                // ゲージの更新
+                                _gaugeSliderView.SetChallengerSliderGauge(_evaluateModel.Score01);
                             }
                         }
                         // 表示 & 音声処理
@@ -51,6 +54,7 @@ namespace Script.Presenter
         /// <summary>
         /// ライムセットを更新する
         /// </summary>
+        // TODO: ライムデータの更新はどのタイミングで行う？
         public void UpdateRhymeData()
         {
             _currentSet = _rhymeDataSets[0];

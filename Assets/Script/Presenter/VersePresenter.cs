@@ -17,10 +17,9 @@ namespace Script.Presenter
         /// <param name="isUpdateRhymeData">ライムセットを更新するか</param>
         /// <param name="type">ライムタイプ</param>
         /// <param name="t">[0, 1]の値</param>
-        /// <param name="precision">精度</param>
-        public void SetBeatParam(bool isUpdateRhymeData, RhymeType type, double t, double precision)
+        public void SetBeatParam(bool isUpdateRhymeData, RhymeType type, double t)
         {
-            _evaluateModel.SetParam(type, t, precision);
+            _evaluateModel.SetParam(type, t);
             _noteView.UpdateView(type, (float)t);
             if (isUpdateRhymeData)
             {

@@ -2,6 +2,7 @@ using DG.Tweening;
 using naichilab.EasySoundPlayer.Scripts;
 using Script.Data;
 using Script.Model;
+using Script.Util;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,9 +22,11 @@ namespace Script.View
         [SerializeField] private TextMeshProUGUI _rhymeLabel;
         [SerializeField] private EvaluateModel _evaluateModel;
         [SerializeField] private NoteView _noteView;
+        [SerializeField] private SoundManager _soundManager;
         private Sequence _noteImagesSequence;
         private Sequence _playerImageSequence;
         private Sequence _rhymeSequence;
+        private int _justComboCount;
         
         private void Awake()
         {
@@ -32,6 +35,7 @@ namespace Script.View
             _rhymePanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _playerImage.sprite = _playerSprite;
+            _justComboCount = 0;
         }
 
         /// <summary>
@@ -63,7 +67,9 @@ namespace Script.View
                 .SetLink(gameObject);
             _playerImageSequence.Play();
             // SE再生
-            SePlayer.Instance.Play(rhymeData.Clip.name);
+            _soundManager.PlaySe(rhymeData.Clip);
+            // SePlayerによる再生を止める
+            // SePlayer.Instance.Play(rhymeData.Clip.name);
             // ライムテキスト表示
             _rhymeLabel.text = rhymeData.Text;
             _rhymeSequence?.Kill();
@@ -93,15 +99,23 @@ namespace Script.View
         /// <summary>
         /// チャレンジャーの表示演出
         /// </summary>
-        public void ShowChallengerPanel()
+        public void ChallengerEnter()
         {
+            _justComboCount = 0;
             _challengerPanel.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+        }
+
+        /// <summary>
+        /// チャレンジャー退場
+        /// </summary>
+        public void ChallengerExit()
+        {
+            _challengerPanel.DOFade(0.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 
         public void OnMyTurnStart()
         {
             // 表示するたびにスライダーの初期化をする
-            // TODO: このタイミングではセットされていない
             // FIXME: PrecisionはEvaluateModelでセットしたほうが良いかも...
             _noteView.InitNoteSlider(_evaluateModel.Precision);
             DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymePanel.alpha = value)
