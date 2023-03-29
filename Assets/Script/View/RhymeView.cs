@@ -33,6 +33,7 @@ namespace Script.View
             // 初期状態では透明
             _challengerPanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _rhymePanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _rhymePanel.interactable = false;
             _myRhyme.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _playerImage.sprite = _playerSprite;
             _justComboCount = 0;
@@ -118,6 +119,8 @@ namespace Script.View
             // 表示するたびにスライダーの初期化をする
             // FIXME: PrecisionはEvaluateModelでセットしたほうが良いかも...
             _noteView.InitNoteSlider(_evaluateModel.Precision);
+            // ボタン入力可能
+            _rhymePanel.interactable = true;
             DOVirtual.Float(0.0f, 1.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)
                 .SetLink(gameObject);
@@ -125,7 +128,8 @@ namespace Script.View
         
         public void OnMyTurnEnd()
         {
-            
+            // ボタン入力不可
+            _rhymePanel.interactable = false;
             // フェードアウト
             DOVirtual.Float(1.0f, 0.0f, 0.6f, value => _rhymePanel.alpha = value)
                 .SetEase(Ease.InOutCubic)

@@ -25,8 +25,9 @@ namespace Script.Presenter
             for (var index = 0; index < StaticConst.INPUT_NUM; index++)
             {
                 var rhymeInput = _rhymeInputs[index];
-                if (Input.GetKeyDown(rhymeInput.KeyCode))
+                if (Input.GetKeyDown(rhymeInput.KeyCode) || rhymeInput.IsButtonClicked)
                 {
+                    rhymeInput.IsButtonClicked = false;
                     // ライムをスピット
                     if (rhymeInput.TryRhymeSpit(_delay))
                     {
@@ -70,6 +71,7 @@ namespace Script.Presenter
         public void OnMyTurnStart()
         {
             _isMyTurn = true;
+            _rhymeView.OnMyTurnStart();
         }
 
         /// <summary>
@@ -78,6 +80,7 @@ namespace Script.Presenter
         public void OnMyTurnEnd()
         {
             _isMyTurn = false;
+            _rhymeView.OnMyTurnEnd();
         }
     }
 }

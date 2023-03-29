@@ -15,17 +15,20 @@ namespace Script.View
         [SerializeField] private FadeView _fadeView;
         [SerializeField] private CanvasGroup _returnToTitle;
 
-        private Sequence _bounceSequence;
+        private Sequence _titleSequence;
 
         private void Awake()
         {
             // 初期化時は見えない
             _buttonGroup.alpha = 0.0f;
             _buttonGroup.interactable = false;
+            _buttonGroup.blocksRaycasts = false;
             _canvasGroup.alpha = 1.0f;
             _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
             _returnToTitle.alpha = 0.0f;
             _returnToTitle.interactable = false;
+            _returnToTitle.blocksRaycasts = false;
         }
 
         /// <summary>
@@ -55,7 +58,9 @@ namespace Script.View
                 .Append(DOVirtual.DelayedCall(0.0f, () =>
                 {
                     _buttonGroup.interactable = true;
+                    _buttonGroup.blocksRaycasts = true;
                     _canvasGroup.interactable = true;
+                    _canvasGroup.blocksRaycasts = true;
                 }))
                 .SetLink(gameObject);
             return sequence;
@@ -76,7 +81,9 @@ namespace Script.View
                 .Append(DOVirtual.DelayedCall(0.0f, () =>
                 {
                     _buttonGroup.interactable = true;
+                    _buttonGroup.blocksRaycasts = true;
                     _canvasGroup.interactable = true;
+                    _canvasGroup.blocksRaycasts = true;
                 }))
                 .SetLink(gameObject);
             return sequence;
@@ -91,17 +98,18 @@ namespace Script.View
             // 1小節あたりにかける時間
             var secPerBar = StaticConst.MIN_AS_SEC * StaticConst.BEAT_NUM / titleBgmBpm;
             // 初回プレイシーケンスの作成
-            var sequence = DOTween.Sequence();
+            _titleSequence?.Kill();
+            _titleSequence = DOTween.Sequence();
             if (isFirstPlay)
             {
-                sequence.Append(OnFirstPlaySequence());
+                _titleSequence.Append(OnFirstPlaySequence());
             }
             else
             {
-                sequence.Append(OnSecondPlaySequence());
+                _titleSequence.Append(OnSecondPlaySequence());
             }
             // バウンスループシーケンス
-            _bounceSequence = DOTween.Sequence()
+            var bounceSequence = DOTween.Sequence()
                 .Append(
                     DOVirtual.Vector3(Vector3.one * 1.05f, Vector3.one, secPerBar,
                             value => _titleImage.rectTransform.localScale = value)
@@ -111,8 +119,8 @@ namespace Script.View
                 .SetLoops(Int32.MaxValue, LoopType.Restart)
                 .SetLink(gameObject);
             // 結合する
-            sequence.Append(_bounceSequence);
-            sequence.Play();
+            _titleSequence.Append(bounceSequence);
+            _titleSequence.Play();
         }
 
         /// <summary>
@@ -121,13 +129,22 @@ namespace Script.View
         public void TitleFadeOut()
         {
             // 念の為、KILL
-            _bounceSequence?.Kill();
+            _titleSequence?.Kill();
             // タイトルのアルファをゼロに
-            DOVirtual.Float(1.0f, 0.0f, 2.0f, value => _canvasGroup.alpha = value)
+            DOVirtual.Float(1.0f, 0.0f, 2.0f, value =>
+                {
+                    _canvasGroup.alpha = value;
+                })
                 .SetEase(Ease.OutCirc)
+                .OnComplete(() =>
+                {
+                    // ボタンは押せないようにする
+                    _canvasGroup.interactable = false;
+                    _canvasGroup.blocksRaycasts = false;
+                    _buttonGroup.interactable = false;
+                    _buttonGroup.blocksRaycasts = false;
+                })
                 .SetLink(gameObject);
-            // ボタンは押せないようにする
-            _canvasGroup.interactable = false;
         }
 
         // タイトルへ戻るボタンを表示
@@ -136,7 +153,11 @@ namespace Script.View
             _fadeView.FadeIn(1.0f);
             _returnToTitle.DOFade(1.0f, 1.0f)
                 .SetEase(Ease.OutCubic)
-                .OnComplete(() => _returnToTitle.interactable = true)
+                .OnComplete(() =>
+                {
+                    _returnToTitle.interactable = true;
+                    _returnToTitle.blocksRaycasts = true;
+                })
                 .SetLink(gameObject);
         }
         

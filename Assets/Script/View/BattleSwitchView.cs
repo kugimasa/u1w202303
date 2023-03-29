@@ -1,6 +1,5 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Script.View
 {
@@ -11,19 +10,25 @@ namespace Script.View
         private void Awake()
         {
             _battle1StartButton.interactable = false;
+            _battle1StartButton.blocksRaycasts = false;
             _battle1StartButton.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         public void ShowBattle1()
         {
             _battle1StartButton.DOFade(1.0f, 2.0f)
-                .OnComplete(() => _battle1StartButton.interactable = true)
+                .OnComplete(() =>
+                {
+                    _battle1StartButton.interactable = true;
+                    _battle1StartButton.blocksRaycasts = true;
+                })
                 .SetLink(gameObject);
         }
         
         public void HideBattle1()
         {
             _battle1StartButton.interactable = false;
+            _battle1StartButton.blocksRaycasts = false;
             _battle1StartButton.DOFade(0.0f, 2.0f).SetLink(gameObject);
         }
     }

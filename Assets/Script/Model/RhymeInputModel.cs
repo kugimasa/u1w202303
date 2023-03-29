@@ -1,6 +1,8 @@
+using System;
 using DG.Tweening;
 using Script.Data;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Script.Model
 {
@@ -8,9 +10,18 @@ namespace Script.Model
     {
         [SerializeField] private KeyCode _keyCode;
         [SerializeField] private RhymeType _rhymeType;
+        [SerializeField] private Button _button;
         private bool _isSpeaking;
         public KeyCode KeyCode => _keyCode;
         public RhymeType RhymeType => _rhymeType;
+        public Button Button => _button;
+        
+        public bool IsButtonClicked { get; set; }
+
+        private void Awake()
+        {
+            _button.onClick.AddListener(() => IsButtonClicked = true);
+        }
 
         /// <summary>
         ///     入力受付状態を見て発言する
