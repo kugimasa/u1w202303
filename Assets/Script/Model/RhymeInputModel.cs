@@ -14,8 +14,7 @@ namespace Script.Model
         private bool _isSpeaking;
         public KeyCode KeyCode => _keyCode;
         public RhymeType RhymeType => _rhymeType;
-        public Button Button => _button;
-        
+
         public bool IsButtonClicked { get; set; }
 
         private void Awake()

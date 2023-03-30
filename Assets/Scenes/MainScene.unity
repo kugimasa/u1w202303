@@ -730,7 +730,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.2875
+  m_Value: 0.9875
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039213, g: 0.3748692, b: 0.70980394, a: 1}
+  m_Color: {r: 0.15566039, g: 0.23738892, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5332,6 +5332,57 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &964055510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964055511}
+  - component: {fileID: 964055512}
+  m_Layer: 0
+  m_Name: RhymeDataModel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &964055511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964055510}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1042.5245, y: 578.46106, z: 23.825655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &964055512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964055510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5496286a7da442f3af2760773e9b85f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battle1RhymeDataSets:
+  - {fileID: 11400000, guid: 206345d244ac24c598c987f6643dfa4a, type: 2}
+  - {fileID: 11400000, guid: 154ba9c8bfa84440ab2ee97e84540b61, type: 2}
+  - {fileID: 11400000, guid: 4787f38dd8e1d4680946b1f495eb2bd8, type: 2}
+  - {fileID: 11400000, guid: d85a81eeb6689464c9a50956993215e8, type: 2}
+  _battle2RhymeDataSets: []
+  _battle3RhymeDataSets: []
 --- !u!1 &976791306
 GameObject:
   m_ObjectHideFlags: 0
@@ -5816,8 +5867,6 @@ PlayableDirector:
     value: {fileID: 1719946580}
   - key: {fileID: -5051573733471969688, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
     value: {fileID: 1084029758}
-  - key: {fileID: 4890149782440995777, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
-    value: {fileID: 1004547212}
   m_ExposedReferences:
     m_References:
     - 4c591ee9ce6ff48bf9ee81d45ae72f4e: {fileID: 1004547208}
@@ -5865,9 +5914,9 @@ MonoBehaviour:
   - {fileID: 1838236473}
   - {fileID: 1557711656}
   _delay: 0.3
-  _rhymeDataSets:
-  - {fileID: 11400000, guid: d85a81eeb6689464c9a50956993215e8, type: 2}
   _gaugeSliderView: {fileID: 1084029759}
+  _rhymeDataModel: {fileID: 964055512}
+  _opponentView: {fileID: 320487433}
 --- !u!114 &1004547211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5884,7 +5933,7 @@ MonoBehaviour:
   _justTimingScore: 10
   _opponentClearScore: 3200000064000000c8000000
   _precisions:
-  - 0.05
+  - 0.1
   - 0
   - 0
 --- !u!114 &1004547212
@@ -5908,6 +5957,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e89446dcd4568445599c7ed0a7a3db0e, type: 2}
     - {fileID: 11400000, guid: 8849d22ee79dc480f8307e854b84d67d, type: 2}
     - {fileID: 11400000, guid: db0e95f2864a14b70b1fece980dc6e86, type: 2}
+    - {fileID: 11400000, guid: ffa1deaf4fc71463db8b59f2597e77bf, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6034,6 +6084,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1004547215}
           m_TargetAssemblyTypeName: Script.Presenter.EvaluatePresenter, Assembly-CSharp
           m_MethodName: OnEvaluateWinner
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1004547209}
+          m_TargetAssemblyTypeName: Script.Presenter.InputPresenter, Assembly-CSharp
+          m_MethodName: UpdateRhymeData
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6424,7 +6488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039216, g: 0.70980394, b: 0.4117647, a: 1}
+  m_Color: {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6535,7 +6599,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.2875
+  m_Value: 0.9875
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7715,7 +7779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -420}
+  m_AnchoredPosition: {x: 598, y: -420}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226382733
@@ -10511,7 +10575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.14925243, b: 0.22119482, a: 1}
+  m_Color: {r: 0.8117647, g: 0, b: 0.08646003, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12800,8 +12864,11 @@ GameObject:
   - component: {fileID: 2033276547}
   - component: {fileID: 2033276549}
   - component: {fileID: 2033276550}
+  - component: {fileID: 2033276552}
+  - component: {fileID: 2033276551}
+  - component: {fileID: 2033276553}
   m_Layer: 5
-  m_Name: BattleSwitchPanel
+  m_Name: TutorialPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12871,6 +12938,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battle1StartButton: {fileID: 1226382736}
+  _tutorialPanel: {fileID: 2033276553}
+--- !u!114 &2033276551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033276546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6bad98e00a11c4d3997f68decca283d9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2033276552
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033276546}
+  m_CullTransparentMesh: 1
+--- !u!225 &2033276553
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033276546}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2033432579
 GameObject:
   m_ObjectHideFlags: 0
@@ -12998,7 +13116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18039216, g: 0.70980394, b: 0.4117647, a: 1}
+  m_Color: {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

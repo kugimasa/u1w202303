@@ -6,12 +6,16 @@ namespace Script.View
     public class BattleSwitchView : MonoBehaviour
     {
         [SerializeField] private CanvasGroup _battle1StartButton;
+        [SerializeField] private CanvasGroup _tutorialPanel;
 
         private void Awake()
         {
             _battle1StartButton.interactable = false;
             _battle1StartButton.blocksRaycasts = false;
             _battle1StartButton.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _tutorialPanel.interactable = false;
+            _tutorialPanel.blocksRaycasts = false;
+            _tutorialPanel.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         public void ShowBattle1()
@@ -23,6 +27,13 @@ namespace Script.View
                     _battle1StartButton.blocksRaycasts = true;
                 })
                 .SetLink(gameObject);
+            _tutorialPanel.DOFade(1.0f, 2.0f)
+                .OnComplete(() =>
+                {
+                    _tutorialPanel.interactable = true;
+                    _tutorialPanel.blocksRaycasts = true;
+                })
+                .SetLink(gameObject);
         }
         
         public void HideBattle1()
@@ -30,6 +41,9 @@ namespace Script.View
             _battle1StartButton.interactable = false;
             _battle1StartButton.blocksRaycasts = false;
             _battle1StartButton.DOFade(0.0f, 2.0f).SetLink(gameObject);
+            _tutorialPanel.interactable = false;
+            _tutorialPanel.blocksRaycasts = false;
+            _tutorialPanel.DOFade(0.0f, 2.0f).SetLink(gameObject);
         }
     }
 }

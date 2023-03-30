@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Script.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

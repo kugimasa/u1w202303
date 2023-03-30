@@ -27,6 +27,8 @@ namespace Script.View
         private Sequence _noteImagesSequence;
         private Sequence _playerImageSequence;
         private Sequence _rhymeSequence;
+        // FIXME: 戒め
+        public int RhymeDataSetIndex { get; set; }
         
         private void Awake()
         {
@@ -40,6 +42,7 @@ namespace Script.View
             {
                 comboText.GetComponent<TextMeshProUGUI>().alpha = 0.0f;
             }
+            RhymeDataSetIndex = 0;
         }
 
         private void PlayComboSequence(int index)
@@ -124,6 +127,8 @@ namespace Script.View
         public void ChallengerEnter()
         {
             _challengerPanel.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+            // FIXME: ここをバトルの開始イベントとしてとるんじゃない！！
+            RhymeDataSetIndex = 0;
         }
 
         /// <summary>
