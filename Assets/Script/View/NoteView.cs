@@ -35,8 +35,8 @@ namespace Script.View
 
         public void InitNoteSlider(double precision)
         {
-            _noteSliderR.value = 0.0f;
-            _noteSliderL.value = 0.0f;
+            _noteSliderR.value = 1.0f;
+            _noteSliderL.value = 1.0f;
             _rangeImage.rectTransform.sizeDelta = new Vector2((float)(_rangeMaxWidth * precision), 40.8f);
             _noteFillR.color = _rhymeTypeColors[0];
             _noteFillL.color = _rhymeTypeColors[0];

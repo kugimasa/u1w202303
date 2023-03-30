@@ -730,7 +730,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.9875
+  m_Value: 0.025
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5381,6 +5381,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 154ba9c8bfa84440ab2ee97e84540b61, type: 2}
   - {fileID: 11400000, guid: 4787f38dd8e1d4680946b1f495eb2bd8, type: 2}
   - {fileID: 11400000, guid: d85a81eeb6689464c9a50956993215e8, type: 2}
+  - {fileID: 11400000, guid: b0c2bd6a1946b4483a313ffbe5842b80, type: 2}
+  - {fileID: 11400000, guid: a6c441e91a4ef432492ae36fc7c1c6c9, type: 2}
+  - {fileID: 11400000, guid: a09ccda9442dd4ef98410e610e08bcbc, type: 2}
+  - {fileID: 11400000, guid: daa6b6b0e1bc34b168effde900fe4949, type: 2}
   _battle2RhymeDataSets: []
   _battle3RhymeDataSets: []
 --- !u!1 &976791306
@@ -6599,7 +6603,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.9875
+  m_Value: 0.025
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9840,7 +9844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.size
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[0]
@@ -9869,15 +9873,15 @@ PrefabInstance:
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: 3b19a979bc0364bf0bf6f96c2981383a, type: 3}
+      objectReference: {fileID: 8300000, guid: 6d4938d1a11004693bc2a0363c5def72, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: 78ba951902f154cadb37b23f4ca3f906, type: 3}
+      objectReference: {fileID: 8300000, guid: 85d57077b640e41adacd5e1899b1cd02, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: 74bcfddffffa0422c9d63df782e759d0, type: 3}
+      objectReference: {fileID: 8300000, guid: 79584e1f74c894d03b96628747661401, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[9]
       value: 

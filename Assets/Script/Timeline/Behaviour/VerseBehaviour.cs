@@ -14,7 +14,8 @@ namespace Script.Timeline.Behaviour
         private double _speed;
         private double _secPerBar;
         private int _currentIndex;
-        private RhymeType[] _rhymeTypes = { RhymeType.RED, RhymeType.PURPLE, RhymeType.GREEN, RhymeType.BLUE};
+        // TODO: ひとまずずらしてみる
+        private RhymeType[] _rhymeTypes = { RhymeType.PURPLE, RhymeType.GREEN, RhymeType.BLUE, RhymeType.RED, };
         private RhymeType _currentRhymeType;
 
         /// <summary>

@@ -66,8 +66,11 @@ namespace Script.Presenter
             for (int i = 0; i < StaticConst.INPUT_NUM; i++)
             {
                 _rhymeInputViews[i].SetRhymeText(_currentSet.RhymeDataArray[i].Text);
+                // TODO: 順序を記録しておく
             }
             _rhymeView.RhymeDataSetIndex++;
+            // コンボのリセット
+            _evaluateModel.ResetCombo();
         }
 
         /// <summary>

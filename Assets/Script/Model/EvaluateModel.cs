@@ -61,6 +61,14 @@ namespace Script.Model
         }
 
         /// <summary>
+        /// コンボのリセット
+        /// </summary>
+        public void ResetCombo()
+        {
+            _combo = 0;
+        }
+
+        /// <summary>
         ///     ライムタイプの判定
         /// </summary>
         /// <param name="inputRhymeType">入力</param>

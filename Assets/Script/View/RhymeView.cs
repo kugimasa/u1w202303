@@ -113,10 +113,20 @@ namespace Script.View
             for (int i = 0; i < combo; i++)
             {
                 PlayComboSequence(i);
-                if (i == 3)
+                switch (i)
                 {
-                    
-                    SePlayer.Instance.Play("audience");
+                    case 0:
+                        SePlayer.Instance.Play("ei");
+                        break;
+                    case 1:
+                        SePlayer.Instance.Play("yeah");
+                        break;
+                    case 2:
+                        SePlayer.Instance.Play("wayyo");
+                        break;
+                    case 3:
+                        SePlayer.Instance.Play("audience");
+                        break;
                 }
             }
         }
