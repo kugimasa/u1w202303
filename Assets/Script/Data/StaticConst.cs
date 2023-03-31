@@ -9,6 +9,11 @@ namespace Script.Data
         internal static readonly int OPPONENT_NUM = 3;
         internal static readonly float INIT_VOLUME = 0.25f;
         internal static readonly string GAME_KEY = "GAME_KEY";
+        internal static readonly string BATTLE1_CLEAR_KEY = "BATTLE1_CLEAR_KEY";
+        internal static readonly string BATTLE2_CLEAR_KEY = "BATTLE2_CLEAR_KEY";
+        internal static readonly string BATTLE1_SECOND_TRY_KEY = "BATTLE1_SECOND_TRY_KEY";
+        internal static readonly string BATTLE2_SECOND_TRY_KEY = "BATTLE2_SECOND_TRY_KEY";
+        internal static readonly string BATTLE3_SECOND_TRY_KEY = "BATTLE3_SECOND_TRY_KEY";
         internal static readonly string BGM_KEY = "BGM_VOLUME_KEY";
         internal static readonly string SE_KEY = "SE_VOLUME_KEY";
     }

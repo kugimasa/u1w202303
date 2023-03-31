@@ -54,14 +54,26 @@ namespace Script.Presenter
                     _opponentView.OpponentExit();
                     // 評価スライダーの非表示
                     _gaugeSliderView.HideEvaluateSlider();
-                    if (_opponentView.OpponentId < StaticConst.OPPONENT_NUM - 1)
+                    switch (_opponentView.OpponentId)
                     {
-                        _timelineManager.PlayBattle(_opponentView.OpponentId + 1);
-                    }
-                    else
-                    {
-                        // エンディングを再生
-                        _timelineManager.PlayEnding();
+                        case 0:
+                            // 毛布ハムマ戦へ
+                            _timelineManager.PlayBattle(1);
+                            // Timelineを切り替えた後にフラグを立てる
+                            PlayerPrefs.SetString(StaticConst.BATTLE1_CLEAR_KEY, "HasKey");
+                            PlayerPrefs.Save();
+                            break;
+                        case 1:
+                            // 星 a.k.a HAMU戦へ
+                            _timelineManager.PlayBattle(2);
+                            // Timelineを切り替えた後にフラグを立てる
+                            PlayerPrefs.SetString(StaticConst.BATTLE2_CLEAR_KEY, "HasKey");
+                            PlayerPrefs.Save();
+                            break;
+                        case 2:
+                            // エンディングを再生
+                            _timelineManager.PlayEnding();
+                            break;
                     }
                 }).SetLink(gameObject);
             }

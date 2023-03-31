@@ -43,6 +43,20 @@ namespace Script.View
             _opponentId = id;
             _opponentImage.sprite = _opponentSprites[id];
             _opponentNameLabel.text = _opponentNames[id];
+            switch (id)
+            {
+                case 0:
+                    PlayerPrefs.SetString(StaticConst.BATTLE1_SECOND_TRY_KEY, "HasKey");
+                    break;
+                case 1:
+                    PlayerPrefs.SetString(StaticConst.BATTLE2_SECOND_TRY_KEY, "HasKey");
+                    break;
+                case 2:
+                    PlayerPrefs.SetString(StaticConst.BATTLE3_SECOND_TRY_KEY, "HasKey");
+                    break;
+                
+            }
+            PlayerPrefs.Save();
         }
 
         /// <summary>

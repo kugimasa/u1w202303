@@ -49,6 +49,23 @@ namespace Script.Util
         }
 
         /// <summary>
+        /// タイトルからプレイ
+        /// </summary>
+        public void PlayBattleFromTitle()
+        {
+            var id = 0;
+            if (PlayerPrefs.HasKey(StaticConst.BATTLE2_CLEAR_KEY))
+            {
+                id = 2;
+            }
+            else if (PlayerPrefs.HasKey(StaticConst.BATTLE1_CLEAR_KEY))
+            {
+                id = 1;
+            }
+            PlayBattle(id);
+        }
+
+        /// <summary>
         /// バトルを再生
         /// </summary>
         public void PlayBattle(int id)
@@ -58,19 +75,29 @@ namespace Script.Util
                 _playableDirector.time = 0.0f;
                 switch (id)
                 {
-                    case 1:
+                    case 0:
                         _playableDirector.playableAsset = _battle1;
                         // ２回目以降の場合
-                        if (!_gamePresenter.IsFirstPlay)
+                        if (PlayerPrefs.HasKey(StaticConst.BATTLE1_SECOND_TRY_KEY))
                         {
                             _playableDirector.time = 12.6;
                         }
                         break;
-                    case 2:
+                    case 1:
                         _playableDirector.playableAsset = _battle2;
+                        // ２回目以降の場合
+                        if (PlayerPrefs.HasKey(StaticConst.BATTLE2_SECOND_TRY_KEY))
+                        {
+                            _playableDirector.time = 10.55;
+                        }
                         break;
-                    case 3:
+                    case 2:
                         _playableDirector.playableAsset = _battle3;
+                        // ２回目以降の場合
+                        if (PlayerPrefs.HasKey(StaticConst.BATTLE3_SECOND_TRY_KEY))
+                        {
+                            _playableDirector.time = 19.2;
+                        }
                         break;
                     default:
                         _playableDirector.playableAsset = _battle1;

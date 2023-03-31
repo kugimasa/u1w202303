@@ -730,7 +730,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0375025
+  m_Value: 0.869161
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2474,6 +2474,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e94a2e03a52ee4b7da5d0c83e95bfeec, type: 2}
     - {fileID: 11400000, guid: ab855a9e6380d4d3fbda46054b003c29, type: 2}
     - {fileID: 11400000, guid: 41fc569ff760346c888a5cf64d01aaeb, type: 2}
+    - {fileID: 11400000, guid: bf861a58f5d544201b66bb8e53ac2146, type: 2}
+    - {fileID: 11400000, guid: 98e6726642aea4f0c971c5d492c55145, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -2513,6 +2515,34 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 320487433}
+          m_TargetAssemblyTypeName: Script.View.OpponentView, Assembly-CSharp
+          m_MethodName: ChangeOpponent
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 320487433}
+          m_TargetAssemblyTypeName: Script.View.OpponentView, Assembly-CSharp
+          m_MethodName: ChangeOpponent
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -4418,7 +4448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05235ad4a06ba432ca04ee3d5519043b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyCode: 49
+  _keyCode: 97
   _rhymeType: 0
   _button: {fileID: 682078996}
 --- !u!114 &682078995
@@ -5385,8 +5415,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6c441e91a4ef432492ae36fc7c1c6c9, type: 2}
   - {fileID: 11400000, guid: a09ccda9442dd4ef98410e610e08bcbc, type: 2}
   - {fileID: 11400000, guid: daa6b6b0e1bc34b168effde900fe4949, type: 2}
-  _battle2RhymeDataSets: []
-  _battle3RhymeDataSets: []
+  _battle2RhymeDataSets:
+  - {fileID: 11400000, guid: 3b7837d7a444e4646997d43077059003, type: 2}
+  - {fileID: 11400000, guid: 74c26e25931d84361aad3ae5736ebb62, type: 2}
+  - {fileID: 11400000, guid: 323317137b40b43d08dda26c2e5f4ab3, type: 2}
+  - {fileID: 11400000, guid: 4841df97e0266447bb2f9b9389e3571d, type: 2}
+  - {fileID: 11400000, guid: 50ae6ed5fbe144849b52336de6f09ace, type: 2}
+  - {fileID: 11400000, guid: e152f666de0344731ae10f15ff5379cd, type: 2}
+  - {fileID: 11400000, guid: 15b9564a65bf94bfc843edf3351a0f12, type: 2}
+  - {fileID: 11400000, guid: 37a9ae992ea3c4aa598269fd30708744, type: 2}
+  _battle3RhymeDataSets:
+  - {fileID: 11400000, guid: 4651b714c87514b3fb51a2c199fd1071, type: 2}
+  - {fileID: 11400000, guid: c2f64e6aed6ed4d6a9c81095a0d5621d, type: 2}
+  - {fileID: 11400000, guid: c5986ff328cc9430dbfb139f97d36c3f, type: 2}
+  - {fileID: 11400000, guid: 1dc4f618b266f4733ac7851aacab254c, type: 2}
+  - {fileID: 11400000, guid: 571b67c4cf5d74cf382597c932da17fc, type: 2}
+  - {fileID: 11400000, guid: 24442647a35bb4220b1fe5223dbbbbaa, type: 2}
+  - {fileID: 11400000, guid: 2e9b95b9194b041fdb4e395c2a326895, type: 2}
+  - {fileID: 11400000, guid: 226a6d9298bd0457ebd0818773416419, type: 2}
 --- !u!1 &976791306
 GameObject:
   m_ObjectHideFlags: 0
@@ -5767,7 +5813,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1004547205}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 0
@@ -5876,6 +5922,40 @@ PlayableDirector:
   - key: {fileID: 8386978381002279924, guid: b59a05965ea4c448786d44270544429b, type: 2}
     value: {fileID: 1084029758}
   - key: {fileID: -5825739825163365565, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -1586568057147282258, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -2673598571771544230, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1738964810}
+  - key: {fileID: -8065398449113865184, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -2353440307875571094, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1578281931}
+  - key: {fileID: 5128908351826497982, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1332856343}
+  - key: {fileID: 8833080134339813792, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: -1128700807247871946, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 163238478775529423, guid: 4fb881a9cbcc74637b76392e8919e1a6, type: 2}
+    value: {fileID: 1719946580}
+  - key: {fileID: -1586568057147282258, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1277201554}
+  - key: {fileID: -2673598571771544230, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1738964810}
+  - key: {fileID: -8065398449113865184, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: -2353440307875571094, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1578281931}
+  - key: {fileID: 5128908351826497982, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1332856343}
+  - key: {fileID: 8833080134339813792, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 320487434}
+  - key: {fileID: -1128700807247871946, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1004547212}
+  - key: {fileID: 163238478775529423, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
+    value: {fileID: 1719946580}
+  - key: {fileID: 4643377088433032142, guid: 7eb0b62b94c7a4337a4aa23843370c1a, type: 2}
     value: {fileID: 1302700218}
   m_ExposedReferences:
     m_References:
@@ -6639,7 +6719,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0375025
+  m_Value: 0.869161
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7810,7 +7890,7 @@ GameObject:
   - component: {fileID: 1226382733}
   - component: {fileID: 1226382736}
   m_Layer: 5
-  m_Name: BattleStartButton1
+  m_Name: BattleStartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7883,8 +7963,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1004547214}
         m_TargetAssemblyTypeName: Script.Util.TimelineManager, Assembly-CSharp
-        m_MethodName: PlayBattle
-        m_Mode: 3
+        m_MethodName: PlayBattleFromTitle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9598,7 +9678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05235ad4a06ba432ca04ee3d5519043b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyCode: 52
+  _keyCode: 102
   _rhymeType: 3
   _button: {fileID: 1557711657}
 --- !u!114 &1557711656
@@ -10284,7 +10364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05235ad4a06ba432ca04ee3d5519043b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyCode: 50
+  _keyCode: 115
   _rhymeType: 1
   _button: {fileID: 1644128800}
 --- !u!114 &1644128799
@@ -10564,6 +10644,8 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 96767477d01864060a70733001d71250, type: 2}
+    - {fileID: 11400000, guid: f6ba72158470745c29b3dd033169bd16, type: 2}
+    - {fileID: 11400000, guid: 7bd03099eac5247fab156ac6d4705957, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -10575,6 +10657,34 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1719946579}
+          m_TargetAssemblyTypeName: Script.Presenter.BeatCheckPresenter, Assembly-CSharp
+          m_MethodName: SetBattleId
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1719946579}
+          m_TargetAssemblyTypeName: Script.Presenter.BeatCheckPresenter, Assembly-CSharp
+          m_MethodName: SetBattleId
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -11652,7 +11762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05235ad4a06ba432ca04ee3d5519043b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyCode: 51
+  _keyCode: 100
   _rhymeType: 2
   _button: {fileID: 1838236474}
 --- !u!114 &1838236473
@@ -13632,7 +13742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.90588236, g: 0.7076269, b: 0.16470589, a: 1}
+  m_Color: {r: 0.90588236, g: 0.7076269, b: 0.16470589, a: 0.59607846}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

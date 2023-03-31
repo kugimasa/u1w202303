@@ -26,6 +26,7 @@ namespace Script.Presenter
             if (_isFirstPlay)
             {
                 PlayerPrefs.SetString(StaticConst.GAME_KEY, "HasKey");
+                PlayerPrefs.Save();
             }
             // タイトル画面初期化
             _titleView.TitleInitialize(_isFirstPlay);

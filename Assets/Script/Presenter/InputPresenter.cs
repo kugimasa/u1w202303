@@ -43,12 +43,11 @@ namespace Script.Presenter
                     // ライムをスピット
                     if (TryRhymeSpit(_delay))
                     {
-                        var isJustTiming = _evaluateModel.EvaluateT(out int comboNum);
                         // ライムタイプ判定
                         if (_evaluateModel.EvaluateRhymeType(rhymeInput.RhymeType))
                         {
                             // タイミング判定処理
-                            if (isJustTiming)
+                            if (_evaluateModel.EvaluateT(out int comboNum))
                             {
                                 _rhymeView.OnJustTiming(comboNum);
                                 // ゲージの更新
