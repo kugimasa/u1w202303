@@ -23,23 +23,6 @@ namespace Script.Model
         }
 
         /// <summary>
-        ///     入力受付状態を見て発言する
-        /// </summary>
-        /// <param name="delay">入力受付しない遅延</param>>
-        /// <returns></returns>
-        public bool TryRhymeSpit(float delay)
-        {
-            if (_isSpeaking)
-            {
-                return false;
-            }
-            _isSpeaking = true;
-            // 解除
-            DOVirtual.DelayedCall(delay, () => _isSpeaking = false).SetLink(gameObject);
-            return true;
-        }
-
-        /// <summary>
         ///     キーバインドの変更
         /// </summary>
         /// <param name="keyCode"></param>

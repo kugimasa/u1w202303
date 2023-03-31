@@ -730,7 +730,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3174998
+  m_Value: 0.0375025
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5871,6 +5871,12 @@ PlayableDirector:
     value: {fileID: 1719946580}
   - key: {fileID: -5051573733471969688, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
     value: {fileID: 1084029758}
+  - key: {fileID: 1595883375105196292, guid: eb426a19e44d84fb0a9a6d379fc06cd6, type: 2}
+    value: {fileID: 1302700218}
+  - key: {fileID: 8386978381002279924, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1084029758}
+  - key: {fileID: -5825739825163365565, guid: b59a05965ea4c448786d44270544429b, type: 2}
+    value: {fileID: 1302700218}
   m_ExposedReferences:
     m_References:
     - 4c591ee9ce6ff48bf9ee81d45ae72f4e: {fileID: 1004547208}
@@ -5935,11 +5941,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxScore: 400
   _justTimingScore: 10
-  _opponentClearScore: 3200000064000000c8000000
+  _opponentClearScore: 64000000c80000002c010000
   _precisions:
   - 0.1
-  - 0
-  - 0
+  - 0.1
+  - 0.1
 --- !u!114 &1004547212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5963,6 +5969,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: db0e95f2864a14b70b1fece980dc6e86, type: 2}
     - {fileID: 11400000, guid: ffa1deaf4fc71463db8b59f2597e77bf, type: 2}
     - {fileID: 11400000, guid: f13835e7bbe5d44bca925c06eb8bdee2, type: 2}
+    - {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6121,6 +6128,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1084029754}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -6507,7 +6528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
+  m_Color: {r: 0.9254902, g: 0.09803922, b: 0.22745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6618,7 +6639,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.3174998
+  m_Value: 0.0375025
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6690,6 +6711,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 262d932ec7c204be3aef2ccad262a4d4, type: 2}
     - {fileID: 11400000, guid: 6bdde1acf05954d5d87ca8e33d3a3334, type: 2}
     - {fileID: 11400000, guid: 27bc175b8ee9f4d73bb18b1cdc3a353d, type: 2}
+    - {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -6724,6 +6746,20 @@ MonoBehaviour:
         - m_Target: {fileID: 1084029759}
           m_TargetAssemblyTypeName: Script.View.GaugeSliderView, Assembly-CSharp
           m_MethodName: HideSliderGauges
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1084029759}
+          m_TargetAssemblyTypeName: Script.View.GaugeSliderView, Assembly-CSharp
+          m_MethodName: SetOpponentSliderGauge
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9880,7 +9916,7 @@ PrefabInstance:
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: faeadf1518c1f4378a3c29c65a535263, type: 3}
+      objectReference: {fileID: 8300000, guid: d4a6e0f0db9a04346ae8997eb23c69f2, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[5]
       value: 
@@ -9888,15 +9924,15 @@ PrefabInstance:
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[6]
       value: 
-      objectReference: {fileID: 8300000, guid: 6d4938d1a11004693bc2a0363c5def72, type: 3}
+      objectReference: {fileID: 8300000, guid: dedc10e33fc7a4ea591e259c24825815, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[7]
       value: 
-      objectReference: {fileID: 8300000, guid: 85d57077b640e41adacd5e1899b1cd02, type: 3}
+      objectReference: {fileID: 8300000, guid: 319cd232e919446ae9f6de68d547007b, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[8]
       value: 
-      objectReference: {fileID: 8300000, guid: 79584e1f74c894d03b96628747661401, type: 3}
+      objectReference: {fileID: 8300000, guid: b027857d001604f5e93bea8ea6be2486, type: 3}
     - target: {fileID: 5917604986509176631, guid: fb9042acf9b6c402ca5af41fd9c4d09b, type: 3}
       propertyPath: SeList.Array.data[9]
       value: 
@@ -13135,7 +13171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6784314, b: 0.9372549, a: 1}
+  m_Color: {r: 0.9254902, g: 0.09803922, b: 0.22745098, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Script.Data;
 using Script.Model;
 using Script.View;
@@ -25,6 +26,7 @@ namespace Script.Presenter
         private bool _isVerseOne;
         private bool _isMyTurn;
         private bool _isRhyming;
+        private bool _isSpeaking;
         private int[] _rhymeTypeArray = {0, 1, 2, 3};
         
 
@@ -39,7 +41,7 @@ namespace Script.Presenter
                 {
                     rhymeInput.IsButtonClicked = false;
                     // ライムをスピット
-                    if (rhymeInput.TryRhymeSpit(_delay))
+                    if (TryRhymeSpit(_delay))
                     {
                         var isJustTiming = _evaluateModel.EvaluateT(out int comboNum);
                         // ライムタイプ判定
@@ -62,6 +64,23 @@ namespace Script.Presenter
                     }
                 }
             }
+        }
+        
+        /// <summary>
+        ///     入力受付状態を見て発言する
+        /// </summary>
+        /// <param name="delay">入力受付しない遅延</param>>
+        /// <returns></returns>
+        private bool TryRhymeSpit(float delay)
+        {
+            if (_isSpeaking)
+            {
+                return false;
+            }
+            _isSpeaking = true;
+            // 解除
+            DOVirtual.DelayedCall(delay, () => _isSpeaking = false).SetLink(gameObject);
+            return true;
         }
 
         /// <summary>
