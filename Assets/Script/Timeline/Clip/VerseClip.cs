@@ -15,6 +15,7 @@ namespace Script.Timeline.Clip
         public ExposedReference<VersePresenter> _versePresenter;
         [SerializeField] private double _bpm;
         [SerializeField] private double _speed;
+        [SerializeField] private double _offset;
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
@@ -24,7 +25,7 @@ namespace Script.Timeline.Clip
                 return default;
             }
             var behaviour = new VerseBehaviour();
-            behaviour.SetVersePresenter(resolvedVersePresenter, _bpm, _speed);
+            behaviour.SetVersePresenter(resolvedVersePresenter, _bpm, _speed, _offset);
             var playable = ScriptPlayable<VerseBehaviour>.Create(graph, behaviour);
             return playable;
         }

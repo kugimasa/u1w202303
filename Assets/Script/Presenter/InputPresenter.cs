@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Script.Data;
@@ -20,14 +21,20 @@ namespace Script.Presenter
         [SerializeField] private OpponentView _opponentView;
         private RhymeDataSet _currentSet;
         private List<RhymeDataSet> _currentRhymeDataSets;
+        private int _rhymeDataSetIndex;
+        private bool _isVerseOne;
         private bool _isMyTurn;
+        private bool _isRhyming;
+        private int[] _rhymeTypeArray = {0, 1, 2, 3};
+        
 
         void Update()
         {
             if (!_isMyTurn) return;
+            _isRhyming = false;
             for (var index = 0; index < StaticConst.INPUT_NUM; index++)
             {
-                var rhymeInput = _rhymeInputs[index];
+                var rhymeInput = _rhymeInputs[_rhymeTypeArray[index]];
                 if (Input.GetKeyDown(rhymeInput.KeyCode) || rhymeInput.IsButtonClicked)
                 {
                     rhymeInput.IsButtonClicked = false;
@@ -47,8 +54,9 @@ namespace Script.Presenter
                             }
                         }
                         // 表示 & 音声処理
-                        _rhymeInputViews[index].OnInput();
+                        _rhymeInputViews[_rhymeTypeArray[index]].OnInput();
                         _rhymeView.OnRhymeSpit(_currentSet.RhymeDataArray[index]);
+                        _isRhyming = true;
                         // 同時押しはNG
                         return;
                     }
@@ -59,30 +67,56 @@ namespace Script.Presenter
         /// <summary>
         /// ライムセットを更新する
         /// </summary>
-        public void UpdateRhymeData()
+        public bool UpdateRhymeData()
         {
-            // FIXME: RhymeViewにindexを持たせるんじゃない！！
-            _currentSet = _currentRhymeDataSets[_rhymeView.RhymeDataSetIndex];
+            if (_currentRhymeDataSets == null) return false;
+            // 以降は更新なし
+            if (_isVerseOne && _rhymeDataSetIndex == StaticConst.BEAT_NUM) return false;
+            if (!_isVerseOne && _rhymeDataSetIndex == StaticConst.BEAT_NUM * 2) return false;
+            if (_isRhyming || !_isMyTurn)
+            {
+                return false;
+            }
+            _currentSet = _currentRhymeDataSets[_rhymeDataSetIndex];
+            var index = Enumerable.Range(0, 4).Select(i => i).OrderBy(i => Guid.NewGuid());
+            // ライムタイプ配列を更新
+            _rhymeTypeArray = index.ToArray();
             for (int i = 0; i < StaticConst.INPUT_NUM; i++)
             {
-                _rhymeInputViews[i].SetRhymeText(_currentSet.RhymeDataArray[i].Text);
-                // TODO: 順序を記録しておく
+                _rhymeInputViews[_rhymeTypeArray[i]].SetRhymeText(_currentSet.RhymeDataArray[i].Text);
             }
-            _rhymeView.RhymeDataSetIndex++;
+            _rhymeDataSetIndex++;
             // コンボのリセット
             _evaluateModel.ResetCombo();
+            return true;
+        }
+
+        /// <summary>
+        /// 入れ替えライムタイプを取得
+        /// </summary>
+        public int[] GetRhymeTypeArray()
+        {
+            return _rhymeTypeArray;
         }
 
         /// <summary>
         /// ターン開始
         /// </summary>
-        public void OnMyTurnStart()
+        public void OnMyTurnStart(bool isVerseOne)
         {
+            _isVerseOne = isVerseOne;
             _isMyTurn = true;
             _rhymeView.OnMyTurnStart();
             // FIXME: OpponentIdから取ってくるんじゃない!!!
-            _currentRhymeDataSets = _rhymeDataModel.GetCurrentRhymeDataSet(_opponentView.OpponentId);
-            UpdateRhymeData();
+            _currentRhymeDataSets = new List<RhymeDataSet>(_rhymeDataModel.GetCurrentRhymeDataSet(_opponentView.OpponentId));
+            if (_isVerseOne)
+            {
+                _rhymeDataSetIndex = 0;
+            }
+            else
+            {
+                _rhymeDataSetIndex = 4;
+            }
         }
 
         /// <summary>

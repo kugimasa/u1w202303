@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Script.Data;
 using Script.Model;
 using Script.View;
@@ -22,9 +23,19 @@ namespace Script.Presenter
             _noteView.UpdateView(type, (float)t);
         }
 
-        public void UpdateRhymeData()
+        public bool UpdateRhymeData()
         {
-            _inputPresenter.UpdateRhymeData();
+            return _inputPresenter.UpdateRhymeData();
+        }
+
+        public RhymeType[] GetRhymeTypeArray()
+        {
+            var rhymeTypeList = new List<RhymeType>();
+            foreach (var index in _inputPresenter.GetRhymeTypeArray())
+            {
+                rhymeTypeList.Add((RhymeType)index);
+            }
+            return rhymeTypeList.ToArray();
         }
     }
 }
