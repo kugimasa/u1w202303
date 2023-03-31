@@ -16,6 +16,7 @@ namespace Script.Presenter
         {
             _battleId = id;
             _beatCheckView.ShowBeatCheckView(_battleId);
+            _isStar = false;
         }
 
         public void PlayHamBeat()

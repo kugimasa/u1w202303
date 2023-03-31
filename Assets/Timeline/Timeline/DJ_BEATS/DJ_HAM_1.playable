@@ -322,7 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 6.333333333333333
   m_Retroactive: 1
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 262d932ec7c204be3aef2ccad262a4d4, type: 2}
 --- !u!114 &-7858270447856190097
 MonoBehaviour:
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 99.06666666666666
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
 --- !u!114 &-5458940223869020130
 MonoBehaviour:
@@ -1139,7 +1139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 100.55
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 27bc175b8ee9f4d73bb18b1cdc3a353d, type: 2}
 --- !u!114 &-4444102910043241675
 MonoBehaviour:
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 51.18333333333333
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
 --- !u!114 &-4096877072546320016
 MonoBehaviour:
@@ -1862,7 +1862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 41.11068027210898
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
 --- !u!114 &4443385451356085675
 MonoBehaviour:
@@ -1979,7 +1979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 8.5
   m_Retroactive: 1
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 6bdde1acf05954d5d87ca8e33d3a3334, type: 2}
 --- !u!114 &5657438159186454175
 MonoBehaviour:
@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 91.15
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
 --- !u!114 &5847228229231141799
 MonoBehaviour:
@@ -2952,7 +2952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Time: 83.5
   m_Retroactive: 0
-  m_EmitOnce: 0
+  m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 701dc469babc04f0a8c88f498a58042d, type: 2}
 --- !u!114 &8730964783589823149
 MonoBehaviour:

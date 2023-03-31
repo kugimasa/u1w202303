@@ -14,6 +14,8 @@ namespace Script.View
         [SerializeField] private Image _titleImage;
         [SerializeField] private FadeView _fadeView;
         [SerializeField] private CanvasGroup _returnToTitle;
+        [SerializeField] private CanvasGroup _endingImg;
+        [SerializeField] private Image _taneTicketImg;
 
         private Sequence _titleSequence;
 
@@ -29,6 +31,8 @@ namespace Script.View
             _returnToTitle.alpha = 0.0f;
             _returnToTitle.interactable = false;
             _returnToTitle.blocksRaycasts = false;
+            _endingImg.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _taneTicketImg.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         /// <summary>
@@ -167,6 +171,28 @@ namespace Script.View
             // DOTweenを全てKillする必要がある...??
             DOTween.KillAll();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        /// <summary>
+        /// エンディングの画像表示
+        /// </summary>
+        public void EndingImgShow()
+        {
+            _endingImg.DOFade(1.0f, 2.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+        }
+
+        public void ShowTaneTicket()
+        {
+            _taneTicketImg.DOFade(1.0f, 1.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+        }
+
+        /// <summary>
+        /// キャッシュを削除してシーンをリロード
+        /// </summary>
+        public void RestAllCache()
+        {
+            PlayerPrefs.DeleteAll();
+            ReturnToTitle();
         }
     }
 }

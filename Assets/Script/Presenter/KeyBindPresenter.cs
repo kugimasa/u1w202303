@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Script.Data;
 using Script.Model;
 using Script.View;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +16,7 @@ namespace Script.Presenter
         [SerializeField] private RhymeInputModel[] _rhymeInputModels = new RhymeInputModel[StaticConst.INPUT_NUM];
         [SerializeField] private KeyBindView[] _keyBindViews = new KeyBindView[StaticConst.INPUT_NUM];
         [SerializeField] private Button[] _keyBindButtons = new Button[StaticConst.INPUT_NUM];
-        [SerializeField] private GameObject _confirmationPanel;
+        [SerializeField] private TextMeshProUGUI _confirmationText;
         private int _waitingId = -1;
 
         void Start()
@@ -24,6 +26,7 @@ namespace Script.Presenter
                 var id = i;
                 _keyBindButtons[id].OnClickAsObservable().Subscribe(_ => OnBindButtonClick(id)).AddTo(this);
             }
+            _confirmationText.text = "キーを変えたいボタンをクリック";
         }
 
         private void Update()
@@ -37,10 +40,23 @@ namespace Script.Presenter
                 {
                     if (Input.GetKeyDown(assignedKeyCode))
                     {
-                        // TODO: 同じKeyはだめだYO
+                        _confirmationText.text = "既に使われているキーだ!";
+                        DOVirtual.DelayedCall(2.0f, () =>
+                        {
+                            _confirmationText.text = "キーを変えたいボタンをクリック";
+                        }).SetLink(gameObject);
                         return;
                     }
                 }
+                // マウスは無視
+                if (Input.GetKeyDown(KeyCode.Mouse0) ||
+                    Input.GetKeyDown(KeyCode.Mouse1) ||
+                    Input.GetKeyDown(KeyCode.Mouse2) || 
+                    Input.GetKeyDown(KeyCode.Mouse3) ||
+                    Input.GetKeyDown(KeyCode.Mouse4) ||
+                    Input.GetKeyDown(KeyCode.Mouse5) || 
+                    Input.GetKeyDown(KeyCode.Mouse6))
+                    return;
                 // 何らかのキーが入力された
                 if (Input.anyKey)
                 {
@@ -57,9 +73,8 @@ namespace Script.Presenter
         /// <param name="id">バインドID</param>
         private void OnBindButtonClick(int id)
         {
-            // パネルの表示
-            _confirmationPanel.SetActive(true);
             _waitingId = id;
+            _confirmationText.text = $"キーを入力だ!";
         }
 
         /// <summary>
@@ -76,8 +91,12 @@ namespace Script.Presenter
                     _rhymeInputModels[id].SetKeyCode(bindKeyCode);
                     // 表示関連
                     // FIXME: 同時押しでテキストに入ってしまう
-                    _keyBindViews[id].SetKeyCodeText(Input.inputString);
-                    _confirmationPanel.SetActive(false);
+                    _keyBindViews[id].SetKeyCodeText(bindKeyCode.ToString());
+                    _confirmationText.text = $"{bindKeyCode.ToString()} に変わったぞ!";
+                    DOVirtual.DelayedCall(2.0f, () =>
+                    {
+                        _confirmationText.text = "キーを変えたいボタンをクリック";
+                    }).SetLink(gameObject);
                     break;
                 }
             }
@@ -90,14 +109,6 @@ namespace Script.Presenter
             {
                 keyCodes.Add(_rhymeInputModels[i].KeyCode);
             }
-            // マウスを弾いておく
-            // FIXME: ここも何とかしたい
-            keyCodes.Add(KeyCode.Mouse0);
-            keyCodes.Add(KeyCode.Mouse1);
-            keyCodes.Add(KeyCode.Mouse2);
-            keyCodes.Add(KeyCode.Mouse3);
-            keyCodes.Add(KeyCode.Mouse4);
-            keyCodes.Add(KeyCode.Mouse5);
             return keyCodes;
         }
     }

@@ -52,6 +52,11 @@ namespace Script.View
             _challengerSlider.value = value;
         }
         
+        public void SetOpponentSliderGauge(float value)
+        {
+            _opponentSlider.value = value;
+        }
+        
         public void SetOpponentSliderGauge()
         {
             _opponentSlider.value += 0.05f;
