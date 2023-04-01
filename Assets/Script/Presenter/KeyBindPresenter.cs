@@ -21,6 +21,8 @@ namespace Script.Presenter
 
         void Start()
         {
+            // 初回セット
+            SetFromPlayerPrefs();
             for (int i = 0; i < StaticConst.INPUT_NUM; i++)
             {
                 var id = i;
@@ -67,6 +69,20 @@ namespace Script.Presenter
             }
         }
 
+        private void SetFromPlayerPrefs()
+        {
+            for (int i = 0; i < StaticConst.INPUT_NUM; i++)
+            {
+                if (PlayerPrefs.HasKey(StaticConst.KEY_CONFIG_KEYS[i]))
+                {
+                    var bindKeyCode = (KeyCode)PlayerPrefs.GetInt(StaticConst.KEY_CONFIG_KEYS[i]);
+                    _rhymeInputModels[i].SetKeyCode(bindKeyCode);
+                    // 表示関連
+                    _keyBindViews[i].SetKeyCodeText(bindKeyCode.ToString());
+                }
+            }
+        }
+
         /// <summary>
         ///     キーバインドボタンクリック
         /// </summary>
@@ -90,9 +106,11 @@ namespace Script.Presenter
                     // 割り当て変更
                     _rhymeInputModels[id].SetKeyCode(bindKeyCode);
                     // 表示関連
-                    // FIXME: 同時押しでテキストに入ってしまう
                     _keyBindViews[id].SetKeyCodeText(bindKeyCode.ToString());
                     _confirmationText.text = $"{bindKeyCode.ToString()} に変わったぞ!";
+                    // 保存する
+                    PlayerPrefs.SetInt(StaticConst.KEY_CONFIG_KEYS[id], (int)bindKeyCode);
+                    PlayerPrefs.Save();
                     DOVirtual.DelayedCall(2.0f, () =>
                     {
                         _confirmationText.text = "キーを変えたいボタンをクリック";

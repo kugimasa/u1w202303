@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 94.98333333333333
+  m_Time: 93.95
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: b88923564e522472896387bc04817434, type: 2}
@@ -273,10 +273,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 35.8833333
+    m_Start: 36.083333
     m_ClipIn: 0
     m_Asset: {fileID: -622107257525992255}
-    m_Duration: 20.083333366666544
+    m_Duration: 19.533333666666664
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5857383225983091076}
     m_EaseInDuration: 0
@@ -342,10 +342,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: VerseClip
   - m_Version: 1
-    m_Start: 74.5167
+    m_Start: 74.3333
     m_ClipIn: 0
     m_Asset: {fileID: 1009333279358941816}
-    m_Duration: 20.443980272107567
+    m_Duration: 19.61670000000001
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5857383225983091076}
     m_EaseInDuration: 0
@@ -438,7 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 35.833333333333336
+  m_Time: 35.97734693877551
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 6b476fef642a647149c87594f57becaa, type: 2}
@@ -1133,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 55.8
+  m_Time: 55.61666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: b88923564e522472896387bc04817434, type: 2}
@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 74.43333333333334
+  m_Time: 74.23333333333333
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: f13835e7bbe5d44bca925c06eb8bdee2, type: 2}

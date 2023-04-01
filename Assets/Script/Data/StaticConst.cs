@@ -16,5 +16,6 @@ namespace Script.Data
         internal static readonly string BATTLE3_SECOND_TRY_KEY = "BATTLE3_SECOND_TRY_KEY";
         internal static readonly string BGM_KEY = "BGM_VOLUME_KEY";
         internal static readonly string SE_KEY = "SE_VOLUME_KEY";
+        internal static readonly string[] KEY_CONFIG_KEYS = new[] { "RED_KEY", "PURPLE_KEY", "GREEN_KEY", "BLUE_KEY", };
     }
 }

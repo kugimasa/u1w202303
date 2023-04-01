@@ -882,7 +882,7 @@ MonoBehaviour:
   _versePresenter:
     exposedName: 783b515397c8b4b278bfd90cd9c8b970
     defaultValue: {fileID: 0}
-  _bpm: 100
+  _bpm: 95
   _speed: 2
   _offset: 0
 --- !u!114 &-6539051709938018370
@@ -971,7 +971,7 @@ MonoBehaviour:
     m_Start: 15.57017
     m_ClipIn: 0
     m_Asset: {fileID: -622107257525992255}
-    m_Duration: 19.863163333333333
+    m_Duration: 20.32983
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5857383225983091076}
     m_EaseInDuration: 0
@@ -1409,7 +1409,7 @@ MonoBehaviour:
   _versePresenter:
     exposedName: 83945398bc50b4a40917c0f63910919e
     defaultValue: {fileID: 0}
-  _bpm: 100
+  _bpm: 95
   _speed: 2
   _offset: 0
 --- !u!114 &-553913505509996962
@@ -1774,7 +1774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 35.25
+  m_Time: 35.9
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: b88923564e522472896387bc04817434, type: 2}
