@@ -383,10 +383,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: VerseClip
   - m_Version: 1
-    m_Start: 75.0535
+    m_Start: 75.1201754
     m_ClipIn: 0
     m_Asset: {fileID: -6692588790369432852}
-    m_Duration: 20.52983333333333
+    m_Duration: 20.463157933333335
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5857383225983091076}
     m_EaseInDuration: 0

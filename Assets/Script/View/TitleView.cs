@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Script.Data;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,6 +17,7 @@ namespace Script.View
         [SerializeField] private CanvasGroup _returnToTitle;
         [SerializeField] private CanvasGroup _endingImg;
         [SerializeField] private Image _taneTicketImg;
+        [SerializeField] private TextMeshProUGUI _thanksText;
 
         private Sequence _titleSequence;
 
@@ -33,6 +35,7 @@ namespace Script.View
             _returnToTitle.blocksRaycasts = false;
             _endingImg.DOFade(0.0f, 0.0f).SetLink(gameObject);
             _taneTicketImg.DOFade(0.0f, 0.0f).SetLink(gameObject);
+            _thanksText.DOFade(0.0f, 0.0f).SetLink(gameObject);
         }
 
         /// <summary>
@@ -184,6 +187,12 @@ namespace Script.View
         public void ShowTaneTicket()
         {
             _taneTicketImg.DOFade(1.0f, 1.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
+        }
+
+        public void ShowThanksText()
+        {
+            
+            _thanksText.DOFade(1.0f, 1.0f).SetEase(Ease.OutCubic).SetLink(gameObject);
         }
 
         /// <summary>
